@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import "/css/navbar.css";
+import "/public/css/navbar.css";
 function Navbar() {
 
   return (
