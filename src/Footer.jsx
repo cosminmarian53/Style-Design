@@ -8,8 +8,8 @@ function Footer() {
     <>
       {/* <!-- Footer --> */}
       <footer
-        className="bg-secondary text-center text-lg-start text-white"
-        style={{ backgroundColor: "#db6930" }}
+        className="text-center text-lg-start text-white"
+        style={{ backgroundColor: "#4563c9" }}
       >
         {/* <!-- Grid container --> */}
         <div className="container p-4 pb-0">
