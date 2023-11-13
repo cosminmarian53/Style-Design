@@ -5,5 +5,5 @@ Currently, two official plugins are available:
 # Second Commit
 I have added a few animations for the cards, and a footer. After this I will add a switch-to-dark-mode button.
 
-#Fifth Commit
+# Fifth Commit
 Rearrenged the Footer and made some new components to make it more easily readable and cleaner.
