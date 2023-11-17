@@ -100,7 +100,10 @@ function Navbar() {
                   darkMode ? "text-white" : "text-dark"
                 }`}
               >
-                <ShoppingCartOutlinedIcon fontSize="medium" />
+                <a>
+                  {" "}
+                  <ShoppingCartOutlinedIcon fontSize="medium" />{" "}
+                </a>
               </li>
             </ul>
           </div>
