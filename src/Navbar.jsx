@@ -3,6 +3,7 @@ import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import "/public/css/navbar.css";
+
 function Navbar() {
   const [darkMode, setDarkMode] = useState(false);
   const toggleDarkMode = () => {
