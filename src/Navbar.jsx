@@ -101,8 +101,7 @@ function Navbar() {
                 }`}
               >
                 <a>
-                  {" "}
-                  <ShoppingCartOutlinedIcon fontSize="medium" />{" "}
+                  <ShoppingCartOutlinedIcon fontSize="medium" />
                 </a>
               </li>
             </ul>
