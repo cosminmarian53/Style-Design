@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import LightModeIcon from "@mui/icons-material/LightMode";
-import "/public/css/navbar.css";
+import "/public/css/style.css";
 
 function Navbar() {
   const [darkMode, setDarkMode] = useState(false);
