@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+
+// Importing Icons
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import LightModeIcon from "@mui/icons-material/LightMode";
+
+// Navbar Component
 function Navbar() {
   // Dark Mode
   const [darkMode, setDarkMode] = useState(false);
@@ -12,6 +16,7 @@ function Navbar() {
   useEffect(() => {
     document.body.className = darkMode ? "dark-mode" : "";
   }, [darkMode]);
+
   // Navbar Collapse
   const [isNavCollapsed, setIsNavCollapsed] = useState(window.innerWidth < 992);
   useEffect(() => {
