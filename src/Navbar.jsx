@@ -12,11 +12,6 @@ function Navbar() {
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
-
-  useEffect(() => {
-    document.body.className = darkMode ? "dark-mode" : "";
-  }, [darkMode]);
-
   // Navbar Collapse
   const [isNavCollapsed, setIsNavCollapsed] = useState(window.innerWidth < 992);
   useEffect(() => {
