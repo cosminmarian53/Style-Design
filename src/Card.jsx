@@ -29,7 +29,7 @@ function Card(props) {
           className="position-absolute h-100 w-100"
           style={{
             backgroundColor: props.color,
-            opacity: isButtonVisible ? 1 : 0.3,
+            opacity: isButtonVisible ? 1 : 0.05,
             transition: "1s",
           }}
         ></div>
@@ -37,7 +37,8 @@ function Card(props) {
           <h5
             style={{
               fontSize: "4rem",
-              transition: "opacity 0.8s ease-in-out, transform 1.5s ease-in-out",
+              transition:
+                "opacity 0.8s ease-in-out, transform 1.5s ease-in-out",
               opacity: isButtonVisible ? 1 : 0,
               transform: isButtonVisible
                 ? "translateY(10px)"
