@@ -43,6 +43,8 @@ function Card(props) {
               transform: isButtonVisible
                 ? "translateY(10px)"
                 : "translateY(-10px)",
+              fontFamily: "Bebas Neue",
+              letterSpacing: "0.3rem",
             }}
             className="card-title text-center text-white text-uppercase mb-4"
           >

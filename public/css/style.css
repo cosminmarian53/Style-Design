@@ -1,8 +1,15 @@
-/* <reset-style> ============================ */
+/*============================= Main Style ============================ */
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap");
+html {
+  scroll-behavior: smooth;
+}
 a {
   text-decoration: none;
 }
-
+footer {
+  font-family: "Quicksand", sans-serif;
+  letter-spacing: 0.5px;
+}
 /* ============================ N A V B A R ============================ */
 .nav-btn {
   color: #fff;
