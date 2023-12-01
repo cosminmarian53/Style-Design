@@ -1,5 +1,3 @@
-import React from "react";
-
 function CopyrightSD() {
   const year = new Date().getFullYear();
   return (
@@ -8,8 +6,8 @@ function CopyrightSD() {
         className="text-center p-3"
         style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
       >
-        © {year} Copyright:{' '}
-        <a className="text-white" href="https://styledesign.ro/">
+        © {year} Copyright:{" "}
+        <a className="text-white copyright-link" href="https://styledesign.ro/">
           styledesign.ro
         </a>
       </div>
