@@ -3,6 +3,7 @@ import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import LightModeIcon from "@mui/icons-material/LightMode";
 function Navbar() {
+  // Dark Mode
   const [darkMode, setDarkMode] = useState(false);
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
@@ -11,7 +12,7 @@ function Navbar() {
   useEffect(() => {
     document.body.className = darkMode ? "dark-mode" : "";
   }, [darkMode]);
-
+  // Navbar Collapse
   const [isNavCollapsed, setIsNavCollapsed] = useState(window.innerWidth < 992);
   useEffect(() => {
     const handleResize = () => {
@@ -24,10 +25,11 @@ function Navbar() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
   return (
     <>
       <nav
-        className={`navbar navbar-expand-lg navbar-light p-3 ${
+        className={`navbar navbar-expand-lg navbar-light p-3  ${
           darkMode ? "dark-mode-bg" : "light-mode-bg"
         }`}
       >
