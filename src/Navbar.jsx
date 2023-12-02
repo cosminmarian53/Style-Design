@@ -1,22 +1,35 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+
+// Importing Icons
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import LightModeIcon from "@mui/icons-material/LightMode";
-import "/public/css/style.css";
 
+// Navbar Component
 function Navbar() {
+  // Dark Mode
   const [darkMode, setDarkMode] = useState(false);
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
-
+  // Navbar Collapse
+  const [isNavCollapsed, setIsNavCollapsed] = useState(window.innerWidth < 992);
   useEffect(() => {
-    document.body.className = darkMode ? "dark-mode" : "";
-  }, [darkMode]);
+    const handleResize = () => {
+      setIsNavCollapsed(window.innerWidth < 992);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <>
       <nav
-        className={`navbar navbar-expand-lg navbar-light p-3 ${
+        className={`navbar navbar-expand-lg navbar-light p-3  ${
           darkMode ? "dark-mode-bg" : "light-mode-bg"
         }`}
       >
@@ -25,7 +38,23 @@ function Navbar() {
             className={`navbar-brand ${darkMode ? "text-white" : "text-dark"}`}
             href="#"
           >
-            <b>STYLE</b> Design
+            {isNavCollapsed ? (
+              <img
+                src={
+                  darkMode ? "/src/assets/sd2-white.png" : "/src/assets/sd2.png"
+                }
+                alt="Logo"
+                className="navbar-brand img-fluid"
+                style={{
+                  width: "3rem",
+                  height: "3rem",
+                }}
+              />
+            ) : (
+              <span style={{ letterSpacing: "0.3px" }}>
+                <b>STYLE</b> Design
+              </span>
+            )}
           </a>
           <button
             className={`navbar-toggler ${darkMode ? "dark-mode-toggler" : ""}`}

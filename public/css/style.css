@@ -1,8 +1,15 @@
-/* <reset-style> ============================ */
+/*============================= Main Style ============================ */
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap");
+html {
+  scroll-behavior: smooth;
+}
 a {
   text-decoration: none;
 }
-
+footer {
+  font-family: "Quicksand", sans-serif;
+  letter-spacing: 0.5px;
+}
 /* ============================ N A V B A R ============================ */
 .nav-btn {
   color: #fff;
@@ -44,4 +51,11 @@ a {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' fill='%23fff'%3e%3cpath stroke-linecap='round' stroke='%23fff' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
   /* Add transition property for smooth color change */
   transition: background-image 0.5s ease;
+}
+/* ========================= Footer =====================*/
+.copyright-link:hover {
+  text-decoration: underline;
+}
+.copyright-link:visited {
+  color: rgb(57, 41, 233);
 }
