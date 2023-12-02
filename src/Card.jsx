@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import LaunchIcon from "@mui/icons-material/Launch";
 function Card(props) {
   const [isButtonVisible, setButtonVisibility] = useState(false);
@@ -13,12 +13,15 @@ function Card(props) {
 
   return (
     <div
-      className="col-12 col-md-6"
-      style={{ height: "50vh", maxWidth: "100vw", padding: "0" }}
+      className="col-12 col-md-3"
+      style={{ height: "50vh", maxWidth: "100%", marginTop: "2rem" }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="card h-100 w-100 position-relative">
+      <div
+        className="card h-100 w-100 position-relative"
+        style={{ overflow: "hidden" }}
+      >
         <img
           src={props.imgsrc}
           className="card-img h-100 w-100"

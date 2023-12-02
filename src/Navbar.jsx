@@ -29,7 +29,7 @@ function Navbar() {
   return (
     <>
       <nav
-        className={`navbar navbar-expand-lg navbar-light p-3  ${
+        className={`navbar navbar-expand-lg navbar-light p-3 ${
           darkMode ? "dark-mode-bg" : "light-mode-bg"
         }`}
       >

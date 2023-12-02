@@ -10,6 +10,23 @@ footer {
   font-family: "Quicksand", sans-serif;
   letter-spacing: 0.5px;
 }
+.cover {
+  background-image: linear-gradient(to bottom, #9f735b85 40%, #f0e8e4 95%),
+    url("Pictures/living.jpg");
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  text-align: center;
+}
+
+.cover h1 {
+  width: 100%;
+  margin-top: 2rem;
+  font-size: 6vw;
+  color: #ffffff;
+  margin: auto;
+  padding: 0;
+}
 /* ============================ N A V B A R ============================ */
 .nav-btn {
   color: #fff;
