@@ -1,5 +1,7 @@
 import { useState } from "react";
 import LaunchIcon from "@mui/icons-material/Launch";
+import { useInView } from "react-intersection-observer";
+import { useSpring, animated } from "react-spring";
 function Card(props) {
   const [isButtonVisible, setButtonVisibility] = useState(false);
 
@@ -10,64 +12,78 @@ function Card(props) {
   const handleMouseLeave = () => {
     setButtonVisibility(false);
   };
+  const [ref, inView] = useInView({
+    triggerOnce: false, // Change this to false if you want the animation to trigger again whenever it comes in view
+  });
+
+  const animation = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? "translateY(0)" : "translateY(50px)",
+    config: { duration: 200 },
+    transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
+    padding: "0",
+  });
 
   return (
-    <div
-      className="col-12 col-md-6"
-      style={{ height: "50vh", maxWidth: "100vw", padding: "0" }}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <div className="card h-100 w-100 position-relative">
-        <img
-          src={props.imgsrc}
-          className="card-img h-100 w-100"
-          alt="background-image"
-          style={{ objectFit: "cover" }}
-        />
-        <div
-          className="position-absolute h-100 w-100"
-          style={{
-            backgroundColor: props.color,
-            opacity: isButtonVisible ? 1 : 0.05,
-            transition: "1s",
-          }}
-        ></div>
-        <div className="card-img-overlay d-flex flex-column align-items-center justify-content-center">
-          <h5
+    <animated.div ref={ref} style={animation}>
+      <div
+        className="col-12 col-md-12"
+        style={{ height: "100vh", padding: "0" }}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div className="card h-100 w-100 position-relative">
+          <img
+            src={props.imgsrc}
+            className="card-img h-100 w-100"
+            alt="background-image"
+            style={{ objectFit: "cover" }}
+          />
+          <div
+            className="position-absolute h-100 w-100"
             style={{
-              fontSize: "4rem",
-              transition:
-                "opacity 0.8s ease-in-out, transform 1.5s ease-in-out",
-              opacity: isButtonVisible ? 1 : 0,
-              transform: isButtonVisible
-                ? "translateY(10px)"
-                : "translateY(-10px)",
-              fontFamily: "Bebas Neue",
-              letterSpacing: "0.3rem",
+              backgroundColor: props.color,
+              opacity: isButtonVisible ? 1 : 0.05,
+              transition: "1s",
             }}
-            className="card-title text-center text-white text-uppercase mb-4"
-          >
-            {props.title}
-          </h5>
-          {isButtonVisible && (
-            <a
-              href="#"
-              className="btn btn-light btn-card"
+          ></div>
+          <div className="card-img-overlay d-flex flex-column align-items-center justify-content-center">
+            <h5
               style={{
-                transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
+                fontSize: "4rem",
+                transition:
+                  "opacity 0.8s ease-in-out, transform 1.5s ease-in-out",
                 opacity: isButtonVisible ? 1 : 0,
                 transform: isButtonVisible
-                  ? "translateY(0)"
+                  ? "translateY(10px)"
                   : "translateY(-10px)",
+                fontFamily: "Bebas Neue",
+                letterSpacing: "0.3rem",
               }}
+              className="card-title text-center text-white text-uppercase mb-4"
             >
-              Deschide <LaunchIcon />
-            </a>
-          )}
+              {props.title}
+            </h5>
+            {isButtonVisible && (
+              <a
+                href="#"
+                className="btn btn-light btn-card"
+                style={{
+                  transition:
+                    "opacity 1s ease-in-out, transform 1s ease-in-out",
+                  opacity: isButtonVisible ? 1 : 0,
+                  transform: isButtonVisible
+                    ? "translateY(0)"
+                    : "translateY(-10px)",
+                }}
+              >
+                Deschide <LaunchIcon />
+              </a>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </animated.div>
   );
 }
 
