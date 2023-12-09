@@ -53,7 +53,7 @@ function Card(props) {
           {isButtonVisible && (
             <a
               href="#"
-              className="btn btn-light"
+              className="btn btn-light btn-card"
               style={{
                 transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
                 opacity: isButtonVisible ? 1 : 0,
