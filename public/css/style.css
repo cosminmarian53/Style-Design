@@ -59,3 +59,7 @@ footer {
 .copyright-link:visited {
   color: rgb(57, 41, 233);
 }
+/* =============================  CARD    ============================ */
+.btn-card {
+  font-family: "Lora", serif;
+}
