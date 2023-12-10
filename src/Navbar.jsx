@@ -51,7 +51,7 @@ function Navbar() {
                 }}
               />
             ) : (
-              <span style={{ letterSpacing: "0.3px" }}>
+              <span style={{ letterSpacing: "1px" }}>
                 <b>STYLE</b> Design
               </span>
             )}

@@ -1,4 +1,3 @@
-import React from "react";
 import Contact from "./Contact";
 import Socials from "./Socials";
 import About, { infoText } from "./About";
@@ -9,7 +8,7 @@ function Footer() {
       {/* <!-- Footer --> */}
 
       <footer
-        className="text-center text-lg-start text-white"
+        className="text-center footer-info text-lg-start text-white"
         style={{ backgroundColor: "#4563c9" }}
       >
         {/* <!-- Grid container --> */}

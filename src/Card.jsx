@@ -2,7 +2,9 @@ import { useState } from "react";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { useInView } from "react-intersection-observer";
 import { useSpring, animated } from "react-spring";
+
 function Card(props) {
+  // Button visibility state
   const [isButtonVisible, setButtonVisibility] = useState(false);
 
   const handleMouseEnter = () => {
@@ -12,18 +14,21 @@ function Card(props) {
   const handleMouseLeave = () => {
     setButtonVisibility(false);
   };
+
+  // Animation: fade-in-on-scroll
   const [ref, inView] = useInView({
     triggerOnce: false, // Change this to false if you want the animation to trigger again whenever it comes in view
   });
 
   const animation = useSpring({
     opacity: inView ? 1 : 0,
-    transform: inView ? "translateY(0)" : "translateY(50px)",
+    transform: inView ? "translateY(0)" : "translateY(55px)",
     config: { duration: 200 },
-    transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
+    transition: "opacity 1.2s ease-in-out, transform 1.2s ease-in-out",
     padding: "0",
   });
 
+  // Card component
   return (
     <animated.div ref={ref} style={animation}>
       <div
@@ -43,7 +48,7 @@ function Card(props) {
             className="position-absolute h-100 w-100"
             style={{
               backgroundColor: props.color,
-              opacity: isButtonVisible ? 1 : 0.05,
+              opacity: isButtonVisible ? 1 : 0,
               transition: "1s",
             }}
           ></div>
@@ -72,12 +77,9 @@ function Card(props) {
                   transition:
                     "opacity 1s ease-in-out, transform 1s ease-in-out",
                   opacity: isButtonVisible ? 1 : 0,
-                  transform: isButtonVisible
-                    ? "translateY(0)"
-                    : "translateY(-10px)",
                 }}
               >
-                Deschide <LaunchIcon />
+                Exploreaza <LaunchIcon />
               </a>
             )}
           </div>
