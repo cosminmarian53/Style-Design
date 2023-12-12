@@ -1,7 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { useInView } from "react-intersection-observer";
 import { useSpring, animated } from "react-spring";
+<<<<<<< Updated upstream
+=======
+import { DarkModeProvider } from "./DarkModeContext";
+import { DarkModeContext } from "./DarkModeContext";
+
+>>>>>>> Stashed changes
 function Card(props) {
   const [isButtonVisible, setButtonVisibility] = useState(false);
 
@@ -12,6 +18,12 @@ function Card(props) {
   const handleMouseLeave = () => {
     setButtonVisibility(false);
   };
+<<<<<<< Updated upstream
+=======
+  const { darkMode } = useContext(DarkModeContext);
+
+  // Animation: fade-in-on-scroll
+>>>>>>> Stashed changes
   const [ref, inView] = useInView({
     triggerOnce: false, // Change this to false if you want the animation to trigger again whenever it comes in view
   });
@@ -25,6 +37,7 @@ function Card(props) {
   });
 
   return (
+<<<<<<< Updated upstream
     <animated.div ref={ref} style={animation}>
       <div
         className="col-12 col-md-12"
@@ -59,31 +72,83 @@ function Card(props) {
                   : "translateY(-10px)",
                 fontFamily: "Bebas Neue",
                 letterSpacing: "0.3rem",
+=======
+    // Fade-in-on-scroll animation-wrapped around the card
+    <DarkModeProvider>
+      <animated.div ref={ref} style={animation}>
+        <div
+          className="col-12 col-md-12"
+          style={{ height: "100vh", padding: "0" }}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          {/* Image for the card */}
+          <div className="card h-100 w-100 position-relative">
+            <img
+              src={props.imgsrc}
+              className="card-img h-100 w-100"
+              alt="background-image"
+              style={{ objectFit: "cover" }}
+            />
+            <div
+              className="position-absolute h-100 w-100"
+              style={{
+                backgroundColor: props.color,
+                opacity: isButtonVisible ? 1 : 0,
+                transition: "1.5s",
+>>>>>>> Stashed changes
               }}
-              className="card-title text-center text-white text-uppercase mb-4"
-            >
-              {props.title}
-            </h5>
-            {isButtonVisible && (
-              <a
-                href="#"
-                className="btn btn-light btn-card"
+            ></div>
+            {/* Card content */}
+            <div className="card-img-overlay d-flex flex-column align-items-center justify-content-center">
+              <h5
                 style={{
+                  fontSize: "4rem",
                   transition:
-                    "opacity 1s ease-in-out, transform 1s ease-in-out",
+                    "opacity 0.8s ease-in-out, transform 1.6s ease-in-out",
                   opacity: isButtonVisible ? 1 : 0,
                   transform: isButtonVisible
+<<<<<<< Updated upstream
                     ? "translateY(0)"
                     : "translateY(-10px)",
+=======
+                    ? "translateY(-25px)"
+                    : "translateY(0)",
+                  fontFamily: "Bebas Neue",
+                  letterSpacing: "0.3rem",
+>>>>>>> Stashed changes
                 }}
+                className="card-title text-center text-white text-uppercase mb-4"
               >
+<<<<<<< Updated upstream
                 Deschide <LaunchIcon />
               </a>
             )}
+=======
+                {props.title}
+              </h5>
+              {isButtonVisible && (
+                <a
+                  href="#"
+                  className={`btn btn-card  ${
+                    darkMode ? "btn-dark bg-gradient" : "btn-light bg-gradient"
+                  }`}
+                  // "btn btn-light btn-card"
+                  style={{
+                    transition:
+                      "opacity 0.8s ease-in-out, transform 1.6s ease-in-out",
+                    opacity: isButtonVisible ? 1 : 0,
+                  }}
+                >
+                  Exploreaza <LaunchIcon />
+                </a>
+              )}
+            </div>
+>>>>>>> Stashed changes
           </div>
         </div>
-      </div>
-    </animated.div>
+      </animated.div>
+    </DarkModeProvider>
   );
 }
 

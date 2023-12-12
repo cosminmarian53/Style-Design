@@ -1,17 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 
 // Importing Icons
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import LightModeIcon from "@mui/icons-material/LightMode";
+import { DarkModeProvider } from "./DarkModeContext";
+import { DarkModeContext } from "./DarkModeContext";
 
 // Navbar Component
 function Navbar() {
-  // Dark Mode
-  const [darkMode, setDarkMode] = useState(false);
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
+  const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
+
   // Navbar Collapse
   const [isNavCollapsed, setIsNavCollapsed] = useState(window.innerWidth < 992);
   useEffect(() => {
@@ -28,6 +27,7 @@ function Navbar() {
 
   return (
     <>
+<<<<<<< Updated upstream
       <nav
         className={`navbar navbar-expand-lg navbar-light p-3  ${
           darkMode ? "dark-mode-bg" : "light-mode-bg"
@@ -67,77 +67,126 @@ function Navbar() {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
+=======
+      <DarkModeProvider>
+        <nav
+          className={`navbar navbar-expand-lg navbar-light p-3  ${
+            darkMode ? "dark-mode-bg" : "light-mode-bg"
+          }`}
+        >
+          <div className="container-fluid">
+            <a
+              className={`navbar-brand ${
+                darkMode ? "text-white" : "text-dark"
+              }`}
+              href="#"
+            >
+              {isNavCollapsed ? (
+                <img
+                  src={
+                    darkMode
+                      ? "/src/assets/sd2-white.png"
+                      : "/src/assets/sd2.png"
+                  }
+                  alt="Logo"
+                  className="navbar-brand img-fluid"
+                  style={{
+                    width: "3rem",
+                    height: "3rem",
+                  }}
+                />
+              ) : (
+                <span style={{ letterSpacing: "1px" }}>
+                  <b>STYLE</b> Design
+                </span>
+              )}
+            </a>
+            <button
+              className={`navbar-toggler ${
+                darkMode ? "dark-mode-toggler" : ""
+              }`}
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNavDropdown"
+              aria-controls="navbarNavDropdown"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+>>>>>>> Stashed changes
 
-          <div className="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul className="navbar-nav ms-auto">
-              <li
-                className={`nav-item nav-btn ${
-                  darkMode ? "dark-mode-underline" : ""
-                }`}
-              >
-                <a
-                  className={`nav-link mx-2 active ${
+            <div className="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul className="navbar-nav ms-auto">
+                <li
+                  className={`nav-item nav-btn ${
+                    darkMode ? "dark-mode-underline" : ""
+                  }`}
+                >
+                  <a
+                    className={`nav-link mx-2 active ${
+                      darkMode ? "text-white" : "text-dark"
+                    }`}
+                    aria-current="page"
+                    href="#"
+                  >
+                    Acasa
+                  </a>
+                </li>
+                <li
+                  className={`nav-item nav-btn ${
+                    darkMode ? "dark-mode-underline" : ""
+                  }`}
+                >
+                  <a
+                    className={`nav-link mx-2 ${
+                      darkMode ? "text-white" : "text-dark"
+                    }`}
+                    href="#"
+                  >
+                    Produse
+                  </a>
+                </li>
+              </ul>
+              <ul className="navbar-nav ms-auto d-lg-inline-flex">
+                <li
+                  className={`nav-item mx-2 ${
                     darkMode ? "text-white" : "text-dark"
                   }`}
-                  aria-current="page"
-                  href="#"
+                  onClick={toggleDarkMode}
                 >
-                  Acasa
-                </a>
-              </li>
-              <li
-                className={`nav-item nav-btn ${
-                  darkMode ? "dark-mode-underline" : ""
-                }`}
-              >
-                <a
-                  className={`nav-link mx-2 ${
+                  <a>
+                    {darkMode ? (
+                      <LightModeIcon
+                        fontSize="medium"
+                        style={{
+                          transition: "opacity 0.5s",
+                        }}
+                      />
+                    ) : (
+                      <DarkModeOutlinedIcon
+                        fontSize="medium"
+                        style={{
+                          transition: "opacity 0.5s",
+                        }}
+                      />
+                    )}
+                  </a>
+                </li>
+                <li
+                  className={`nav-item mx-2 ${
                     darkMode ? "text-white" : "text-dark"
                   }`}
-                  href="#"
                 >
-                  Produse
-                </a>
-              </li>
-            </ul>
-            <ul className="navbar-nav ms-auto d-lg-inline-flex">
-              <li
-                className={`nav-item mx-2 ${
-                  darkMode ? "text-white" : "text-dark"
-                }`}
-                onClick={toggleDarkMode}
-              >
-                <a>
-                  {darkMode ? (
-                    <LightModeIcon
-                      fontSize="medium"
-                      style={{
-                        transition: "opacity 0.5s",
-                      }}
-                    />
-                  ) : (
-                    <DarkModeOutlinedIcon
-                      fontSize="medium"
-                      style={{
-                        transition: "opacity 0.5s",
-                      }}
-                    />
-                  )}
-                </a>
-              </li>
-              <li
-                className={`nav-item mx-2 ${
-                  darkMode ? "text-white" : "text-dark"
-                }`}
-              >
-                <a>
-                  <ShoppingCartOutlinedIcon fontSize="medium" />
-                </a>
-              </li>
-            </ul>
+                  <a>
+                    <ShoppingCartOutlinedIcon fontSize="medium" />
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </DarkModeProvider>
     </>
   );
 }
