@@ -30,6 +30,7 @@ function Card(props) {
 
   // Card component
   return (
+    // Fade-in-on-scroll animation-wrapped around the card
     <animated.div ref={ref} style={animation}>
       <div
         className="col-12 col-md-12"
@@ -37,6 +38,7 @@ function Card(props) {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
+        {/* Image for the card */}
         <div className="card h-100 w-100 position-relative">
           <img
             src={props.imgsrc}
@@ -49,19 +51,20 @@ function Card(props) {
             style={{
               backgroundColor: props.color,
               opacity: isButtonVisible ? 1 : 0,
-              transition: "1s",
+              transition: "1.5s",
             }}
           ></div>
+          {/* Card content */}
           <div className="card-img-overlay d-flex flex-column align-items-center justify-content-center">
             <h5
               style={{
                 fontSize: "4rem",
                 transition:
-                  "opacity 0.8s ease-in-out, transform 1.5s ease-in-out",
+                  "opacity 0.8s ease-in-out, transform 1.6s ease-in-out",
                 opacity: isButtonVisible ? 1 : 0,
                 transform: isButtonVisible
-                  ? "translateY(10px)"
-                  : "translateY(-10px)",
+                  ? "translateY(-25px)"
+                  : "translateY(0)",
                 fontFamily: "Bebas Neue",
                 letterSpacing: "0.3rem",
               }}
