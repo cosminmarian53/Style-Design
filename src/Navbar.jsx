@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import LightModeIcon from "@mui/icons-material/LightMode";
+// import { DarkModeProvider } from "./DarkModeContext";
 
 // Navbar Component
 function Navbar() {

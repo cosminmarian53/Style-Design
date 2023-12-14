@@ -56,11 +56,13 @@ function Card(props) {
           ></div>
           {/* Card content */}
           <div className="card-img-overlay d-flex flex-column align-items-center justify-content-center">
+            {/* Header */}
             <h5
               style={{
                 fontSize: "4rem",
                 transition:
-                  "opacity 0.8s ease-in-out, transform 1.6s ease-in-out",
+                  "opacity 0.8s ease-in-out, transform 1.3s ease-in-out",
+                transitionDelay: "0.2s", // Add delay here
                 opacity: isButtonVisible ? 1 : 0,
                 transform: isButtonVisible
                   ? "translateY(-25px)"
@@ -72,13 +74,52 @@ function Card(props) {
             >
               {props.title}
             </h5>
+            <div className="card-container container-fluid">
+              <div className="row">
+                <div className="col-12 col-md-12">
+                  {/* Text */}
+                  <p
+                    style={{
+                      transition:
+                        "opacity 0.8s ease-in-out, transform 1.5s ease-in-out",
+                      transitionDelay: "0.4s", // Add delay here
+                      opacity: isButtonVisible ? 1 : 0,
+                      transform: isButtonVisible
+                        ? "translateY(-25px)"
+                        : "translateY(0)",
+                      fontFamily: "Bebas Neue",
+                      letterSpacing: "0.3rem",
+                    }}
+                    className="card-text text-center text-white text-uppercase mb-4"
+                  >
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quibusdam, cumque.
+                  </p>
+                  {/* Thematic break-line */}
+                  <hr
+                    className="line-card"
+                    style={{
+                      transition:
+                        "opacity 0.8s ease-in-out, transform 1.6s ease-in-out",
+                      transitionDelay: "0.6s", // Add delay here
+                      opacity: isButtonVisible ? 1 : 0,
+                      transform: isButtonVisible
+                        ? "translateY(-25px)"
+                        : "translateY(0)",
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+            {/* Button */}
             {isButtonVisible && (
               <a
                 href="#"
-                className="btn btn-light btn-card"
+                className="btn btn-card"
                 style={{
                   transition:
                     "opacity 1s ease-in-out, transform 1s ease-in-out",
+                  transitionDelay: "0.8s", // Add delay here
                   opacity: isButtonVisible ? 1 : 0,
                 }}
               >
