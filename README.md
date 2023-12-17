@@ -11,7 +11,8 @@ Rearrenged the Footer and made some new components to make it more easily readab
 # Sixth Commit
 Added a toggle-to-dark-mode functional button for the home navbar.
 
-
+#Important Update
+From now on, all of my commit descriptions will now be present in their respective description instead of the README. Here I will only add notes that I consider important about the website.
 
 
 
