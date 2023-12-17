@@ -123,7 +123,7 @@ function Card(props) {
                   opacity: isButtonVisible ? 1 : 0,
                 }}
               >
-                Exploreaza <LaunchIcon />
+                Explorează <LaunchIcon />
               </a>
             )}
           </div>

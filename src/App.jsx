@@ -24,7 +24,7 @@ function App() {
         <div className="row">
           <Card
             imgsrc="https://hips.hearstapps.com/hmg-prod/images/2-1673453547.jpg?crop=0.670xw:1.00xh;0.123xw,0&resize=1200:*"
-            title="Bucatarie"
+            title="Bucătărie"
             color={"rgba(65, 150, 186, 0.43)"}
           />
         </div>

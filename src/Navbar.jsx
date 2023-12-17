@@ -52,7 +52,7 @@ function Navbar() {
                 }}
               />
             ) : (
-              <span style={{ letterSpacing: "1px" }}>
+              <span style={{ letterSpacing: "0.2rem" }}>
                 <b>STYLE</b> Design
               </span>
             )}
@@ -83,7 +83,7 @@ function Navbar() {
                   aria-current="page"
                   href="#"
                 >
-                  Acasa
+                  ACASĂ
                 </a>
               </li>
               <li
@@ -97,7 +97,7 @@ function Navbar() {
                   }`}
                   href="#"
                 >
-                  Produse
+                  PRODUSE
                 </a>
               </li>
             </ul>
