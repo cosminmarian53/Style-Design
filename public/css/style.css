@@ -120,6 +120,7 @@ footer {
   color: #fff;
   border-top: 2px solid #fff; /* Add this */
 }
+
 .col-12:hover .line-card {
   animation: double 2s 1s ease-in-out;
   -webkit-animation: double 2s 1s ease-in-out;

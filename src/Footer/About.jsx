@@ -1,16 +1,23 @@
-import React from "react";
-const infoText =
-  "Style Design oferă mobilier elegant și contemporan, aducând un aer proaspăt și rafinat în casele tale. Cu o gamă variată de piese de înaltă calitate, magazinul nostru îmbină designul modern cu funcționalitatea practică pentru a satisface gusturile sofisticate ale clienților noștri.";
 function About({ title, text }) {
   return (
     <>
       <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-        <h6 className="text-uppercase mb-4 font-weight-bold">{title}</h6>
-        <p>{text}</p>
+        <h2
+          className="text-uppercase mb-4 font-weight-bold text-center"
+          style={{ letterSpacing: "0.2rem" }}
+        >
+          <a href="#" className="text-white">
+            <span>
+              <b>STYLE</b>
+            </span>{" "}
+            DESIGN
+          </a>
+        </h2>
+        <hr></hr>
+        <p className="text-center">Where Quality Meets Craftsmanship</p>
       </div>
     </>
   );
 }
 
 export default About;
-export { infoText };

@@ -1,6 +1,6 @@
 import Contact from "./Contact";
 import Socials from "./Socials";
-import About, { infoText } from "./About";
+import About from "./About";
 import CopyrightSD from "./CopyrightSD";
 function Footer() {
   return (
@@ -22,7 +22,7 @@ function Footer() {
             <div className="row">
               {/* <!-- About --> */}
 
-              <About title={"Style Design"} text={infoText} />
+              <About />
 
               {/* <!-- Contact --> */}
               <Contact
