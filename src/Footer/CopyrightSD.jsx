@@ -6,7 +6,7 @@ function CopyrightSD() {
         className="text-center p-3"
         style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
       >
-        © {year} Copyright:{" "}
+        Copyright © {" " + year + " " + ":"}
         <a className="text-white copyright-link" href="https://styledesign.ro/">
           styledesign.ro
         </a>
