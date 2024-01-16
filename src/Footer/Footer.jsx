@@ -29,7 +29,7 @@ function Footer() {
                 title={"Contact"}
                 location={"Targoviste, TG 10012, RO"}
                 email={"info@gmail.com"}
-                tel={"+ 407 234 567 88"}
+                tel={"+40 721 796 093"}
               />
               {/* <!-- Contact --> */}
 

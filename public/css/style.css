@@ -122,8 +122,8 @@ footer {
 }
 
 .col-12:hover .line-card {
-  animation: double 2s 1s ease-in-out;
-  -webkit-animation: double 2s 1s ease-in-out;
+  animation: double 1.3s 1s ease-in-out;
+  -webkit-animation: double 1.3s 1s ease-in-out;
 }
 
 @keyframes double {

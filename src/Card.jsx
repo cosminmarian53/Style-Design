@@ -92,8 +92,7 @@ function Card(props) {
                     }}
                     className="card-text text-center text-white text-uppercase mb-4"
                   >
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Quibusdam, cumque.
+                    {props.slogan}
                   </p>
                   {/* Thematic break-line */}
                   <hr
