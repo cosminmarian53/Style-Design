@@ -4,9 +4,10 @@ import Footer from "../components/Footer/Footer";
 const Products = () => {
   return (
     <>
-      <Navbar />
-      <h1>Products Page</h1>
-      <Footer />
+      <div className="m-0">
+        <Navbar />
+        <Footer />
+      </div>
     </>
   );
 };
