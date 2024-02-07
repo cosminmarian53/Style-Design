@@ -2,6 +2,7 @@ import { useState } from "react";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { useInView } from "react-intersection-observer";
 import { useSpring, animated } from "react-spring";
+import { Link } from "react-router-dom";
 
 function Card(props) {
   // Button visibility state
@@ -112,8 +113,8 @@ function Card(props) {
             </div>
             {/* Button */}
             {isButtonVisible && (
-              <a
-                href="#"
+              <Link
+                to="/products"
                 className="btn btn-card"
                 style={{
                   transition:
@@ -123,7 +124,7 @@ function Card(props) {
                 }}
               >
                 Explorează <LaunchIcon />
-              </a>
+              </Link>
             )}
           </div>
         </div>
