@@ -106,17 +106,18 @@ const Products = () => {
               </div>
               <div className="blog-slider__item swiper-slide">
                 <div className="blog-slider__img">
-                  <img
-                    src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1535759871/alessandro-capuzzi-799180-unsplash.webp"
-                    alt=""
-                  />
+                  <img src="../src/assets/Produse/living/33.jpg" alt="" />
                 </div>
                 <div className="blog-slider__content">
-                  <span className="blog-slider__code">26 December 2019</span>
-                  <div className="blog-slider__title">Lorem Ipsum Dolor</div>
+                  <span className="blog-slider__code">Living Room</span>
+                  <div className="blog-slider__title">Stil clasic</div>
                   <div className="blog-slider__text">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Recusandae voluptate repellendus magni illo ea animi?
+                    Un dulap clasic pentru living room, confecționat din lemn
+                    masiv și finisat cu detalii delicate. Cu linii elegante și
+                    un design atemporal, este piesa perfectă pentru a completa
+                    atmosfera caldă și primitoare a oricărui interior în stil
+                    clasic. Un element de mobilier ce adaugă rafinament și
+                    funcționalitate spațiului de relaxare.
                   </div>
                 </div>
               </div>
