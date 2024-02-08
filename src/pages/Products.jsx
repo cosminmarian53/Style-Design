@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer/Footer";
+import Swiper from "swiper";
 import Form from "../components/Form";
 import { useInView } from "react-intersection-observer";
 import { useSpring, animated } from "react-spring";
@@ -34,6 +35,7 @@ const Products = () => {
     transition: "opacity 1.2s ease-in-out, transform 1.2s ease-in-out",
     padding: "0",
   });
+  // Rest of the code...
   var swiper = new Swiper(".blog-slider", {
     spaceBetween: 30,
     effect: "fade",
