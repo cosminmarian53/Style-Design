@@ -1,6 +1,5 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer/Footer";
-import Swiper from "swiper";
 import Form from "../components/Form";
 import { useInView } from "react-intersection-observer";
 import { useSpring, animated } from "react-spring";
