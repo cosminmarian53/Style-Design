@@ -2,7 +2,7 @@ import { useInView } from "react-intersection-observer";
 import { useSpring, animated } from "react-spring";
 const Form = () => {
   function sendwhatsapp() {
-    var phonenumber = "+4076688455545";
+    var phonenumber = "+407494554455";
 
     var name = document.querySelector("#name").value;
     var lastname = document.querySelector("#lastname").value;
@@ -11,6 +11,19 @@ const Form = () => {
     var mobila = document.querySelector("#mobila").value;
     var design = document.querySelector("#design").value;
     var textarea = document.querySelector("#textarea").value;
+
+    if (
+      !name ||
+      !lastname ||
+      !location ||
+      !email ||
+      !mobila ||
+      !design ||
+      !textarea
+    ) {
+      alert("Vă rugăm să completați toate câmpurile!");
+      return; // Return early from the function
+    }
 
     var url =
       "https://wa.me/" +
