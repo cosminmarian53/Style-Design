@@ -1,6 +1,7 @@
 import { useInView } from "react-intersection-observer";
 import { useSpring, animated } from "react-spring";
 const Form = () => {
+  // Function to send the form data to WhatsApp
   function sendwhatsapp() {
     var phonenumber = "+407494554455";
 
