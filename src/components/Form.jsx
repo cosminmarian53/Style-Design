@@ -3,7 +3,7 @@ import { useSpring, animated } from "react-spring";
 const Form = () => {
   // Function to send the form data to WhatsApp
   function sendwhatsapp() {
-    var phonenumber = "+407494554455";
+    var phonenumber = "+4074887694554455";
 
     var name = document.querySelector("#name").value;
     var lastname = document.querySelector("#lastname").value;
