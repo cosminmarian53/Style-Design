@@ -1,11 +1,18 @@
+import React, { useState } from "react";
+
 import Navbar from "../components/Navbar";
 import Card from "../components/Card";
 import Footer from "../components/Footer/Footer";
 function Home() {
+  // Dark Mode
+  const [darkMode, setDarkMode] = useState(false);
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
   return (
     <>
-      <Navbar />
-      <div className="container-fluid fs-4">
+      <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      <div className={`container-fluid fs-4 ${darkMode ? "dark-mode-bg" : ""}`}>
         <div className="row">
           <Card
             imgsrc="https://www.thespruce.com/thmb/Ba5hg_Dly4IrrInQ-XdKiGVAePo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/fancy-bathroom-ideas-4325947-hero-4777bf14fe2b447b86a21e8a64194c29.jpg"

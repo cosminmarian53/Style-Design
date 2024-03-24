@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
@@ -9,12 +10,7 @@ import { createContext } from "react";
 
 export const DarkModeContext = createContext();
 // Navbar Component
-function Navbar() {
-  // Dark Mode
-  const [darkMode, setDarkMode] = useState(true);
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
+function Navbar({ darkMode, toggleDarkMode }) {
   // Navbar Collapse
   const [isNavCollapsed, setIsNavCollapsed] = useState(window.innerWidth < 992);
   useEffect(() => {

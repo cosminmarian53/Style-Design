@@ -1,10 +1,16 @@
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer/Footer";
 import Form from "../components/Form";
 import { useInView } from "react-intersection-observer";
 import { useSpring, animated } from "react-spring";
 import "/public/css/main.css";
+import { toggleButtonClasses } from "@mui/material";
 const Products = () => {
+  const [darkMode, setDarkMode] = useState(false);
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
   // Animation: fade-in-on-scroll
   const [ref, inView] = useInView({
     triggerOnce: true, // Change this to false if you want the animation to trigger again whenever it comes in view
@@ -50,9 +56,11 @@ const Products = () => {
   });
   return (
     <>
-      <div className="container-fluid m-0 p-0">
+      <div
+        className={`container-fluid m-0 p-0  ${darkMode ? "dark-mode-bg" : ""}`}
+      >
         {/* Navbar */}
-        <Navbar />
+        <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         {/* Header-Section */}
         <div className="products">
           <h1
