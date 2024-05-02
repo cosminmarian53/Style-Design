@@ -22,7 +22,7 @@ To get a local copy up and running follow these simple steps:
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/yourusername/style-design.git
+   git clone https://github.com/cosminmarian53/style-design.git
 2.Install NPM packages
 npm install
 
@@ -40,6 +40,3 @@ React
 React Spring
 Bootstrap
 WhatsApp API
-
-
-Feel free to customize this template to better fit your project's needs. Remember to replace placeholders like `yourusername`, `yourtwitter`, and other personal information with your actual data. Happy coding!
