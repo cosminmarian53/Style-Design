@@ -1,0 +1,145 @@
+/*============================= Main Style ============================ */
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap");
+html {
+  scroll-behavior: smooth;
+}
+a {
+  text-decoration: none;
+}
+footer {
+  font-family: "Quicksand", sans-serif;
+  letter-spacing: 0.5px;
+}
+/* ============================ N A V B A R ============================ */
+.nav-btn {
+  color: #fff;
+  line-height: 2;
+  position: relative;
+  letter-spacing: 0.3rem;
+}
+.nav-btn::before {
+  content: "";
+  width: 0;
+  height: 2px;
+  border-radius: 2px;
+  background-color: #000000;
+  position: absolute;
+  bottom: -0.25rem;
+  left: 50%;
+  transition: width 0.4s, left 0.4s;
+}
+
+.nav-btn:hover::before {
+  width: 100%;
+  left: 0;
+}
+
+/* Dark Mode/Light Mode */
+.dark-mode-bg {
+  background-color: #2b2b2b; /* or any color you want */
+  /* Add transition property for smooth color change */
+  transition: background-color 0.5s ease;
+}
+.light-mode-bg {
+  background-color: #ffffff; /* or any color you want */
+  /* Add transition property for smooth color change */
+  transition: background-color 0.5s ease;
+}
+.dark-mode-underline.nav-btn::before {
+  background-color: #fff;
+}
+.dark-mode-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' fill='%23fff'%3e%3cpath stroke-linecap='round' stroke='%23fff' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  /* Add transition property for smooth color change */
+  transition: background-image 0.5s ease;
+}
+/* ========================= Footer =====================*/
+.footer-info {
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  position: relative;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("/src/assets/background-footer.jpg") no-repeat center center;
+  background-size: cover;
+}
+.copyright-link:hover {
+  text-decoration: underline;
+}
+.copyright-link:visited {
+  color: rgb(57, 41, 233);
+}
+/* =============================  CARD    ============================ */
+
+/* Button */
+.btn-card {
+  font-family: "Bebas Neue", serif;
+  font-size: 1rem;
+  letter-spacing: 0.3rem;
+  padding: 10px;
+  border: unset;
+  border-radius: 7px;
+  color: #212121;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+  overflow: hidden;
+}
+
+.btn-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 7px;
+  background-color: #212121;
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+}
+
+.btn-card:hover {
+  color: #e8e8e8;
+}
+
+.btn-card:hover::before {
+  width: 100%;
+}
+
+/* Card line-break */
+.card-container {
+  position: relative;
+}
+
+.line-card {
+  position: absolute;
+  bottom: 10%; /* Adjust this to position the line above the button */
+  left: 50%;
+  right: 50%;
+  color: #fff;
+  border-top: 2px solid #fff; /* Add this */
+}
+
+.col-12:hover .line-card {
+  animation: double 1.3s 1s ease-in-out;
+  -webkit-animation: double 1.3s 1s ease-in-out;
+}
+
+@keyframes double {
+  0%,
+  100% {
+    width: 0;
+    left: 50%;
+    right: 50%;
+  }
+  50% {
+    width: 100%;
+    left: 0;
+    right: 0;
+  }
+}
