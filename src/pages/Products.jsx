@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer/Footer";
 import Form from "../components/Form";
 import { useInView } from "react-intersection-observer";
 import { useSpring, animated } from "react-spring";
 import "/public/css/main.css";
-import { toggleButtonClasses } from "@mui/material";
 const Products = () => {
   const [darkMode, setDarkMode] = useState(false);
   const toggleDarkMode = () => {
