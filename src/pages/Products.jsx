@@ -4,6 +4,10 @@ import Footer from "../components/Footer/Footer";
 import Form from "../components/Form";
 import { useInView } from "react-intersection-observer";
 import { useSpring, animated } from "react-spring";
+import livingRoom from "../assets/Produse/living/33.jpg";
+import bathroomPhoto from "../assets/Produse/baie/1.jpg";
+import kitchenPhoto from "../assets/Produse/bucatarie/21.jpg";
+import headerBackground from "../assets/Produse/poze-header/2.jpg";
 import "/public/css/main.css";
 const Products = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -68,6 +72,7 @@ const Products = () => {
               fontFamily: "Orbitron,sans-serif",
               letterSpacing: "0.3rem",
               fontSize: "4rem",
+              backgroundImage: "url( '${headerBackground}')",
             }}
           >
             mobilier de înaltă calitate
@@ -80,7 +85,7 @@ const Products = () => {
             <div className="blog-slider__wrp swiper-wrapper">
               <div className="blog-slider__item swiper-slide">
                 <div className="blog-slider__img">
-                  <img src="../src/assets/Produse/bucatarie/21.jpg" alt="" />
+                  <img src={kitchenPhoto} alt="kitchen" />
                 </div>
                 <div className="blog-slider__content">
                   <span className="blog-slider__code">Bucătărie</span>
@@ -97,7 +102,7 @@ const Products = () => {
               </div>
               <div className="blog-slider__item swiper-slide">
                 <div className="blog-slider__img">
-                  <img src="../src/assets/Produse/baie/1.jpg" alt="" />
+                  <img src={bathroomPhoto} alt="bathroomPhoto" />
                 </div>
                 <div className="blog-slider__content">
                   <span className="blog-slider__code">Baie</span>
@@ -114,7 +119,7 @@ const Products = () => {
               </div>
               <div className="blog-slider__item swiper-slide">
                 <div className="blog-slider__img">
-                  <img src="../src/assets/Produse/living/33.jpg" alt="" />
+                  <img src={livingRoom} alt="livingRoomPicture" />
                 </div>
                 <div className="blog-slider__content">
                   <span className="blog-slider__code">Living Room</span>
