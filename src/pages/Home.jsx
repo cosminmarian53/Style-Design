@@ -3,6 +3,7 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Card from "../components/Card";
 import Footer from "../components/Footer/Footer";
+import bedroom from "../assets/Produse/dormitor/Bedroom.jpg";
 function Home() {
   // Dark Mode
   const [darkMode, setDarkMode] = useState(false);
@@ -23,7 +24,7 @@ function Home() {
         </div>
         <div className="row">
           <Card
-            imgsrc="https://www.decorilla.com/online-decorating/wp-content/uploads/2022/12/Luxurious-bedrooms-luxury-bedroom-design.jpg"
+            imgsrc={bedroom}
             title="Dormitor"
             slogan="Adormi într-un vis de lux, trezește-te în realitatea rafinamentului!"
             color={"rgba(65, 150, 186, 0.43)"}
