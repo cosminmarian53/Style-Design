@@ -62,7 +62,7 @@ img {
 /* product section */
 .products {
   padding: 3.2rem 0;
-  background-image: url("../src/assets/Produse/poze-header/2.jpg");
+  background-image: url("../2.jpg");
   height: 80vh;
   background-size: cover;
   background-repeat: no-repeat;
@@ -203,7 +203,7 @@ img {
 }
 .product-col-r-top {
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)),
-    url("../src/assets/Produse/baie/13.jpg") center/cover no-repeat;
+    url("../13.jpg") center/cover no-repeat;
   border-radius: 15px;
   transition: transform 0.3s ease-in-out;
 }
@@ -217,13 +217,13 @@ img {
 }
 .product-col-r-bottom > div:first-child {
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)),
-    url("../src/assets/Produse/dormitor/3.jpg") center/cover no-repeat;
+    url("../3.jpg") center/cover no-repeat;
   border-radius: 15px;
   transition: transform 0.3s ease-in-out;
 }
 .product-col-r-bottom > div:last-child {
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)),
-    url("../src/assets/Produse/living/27.jpg") center/cover no-repeat;
+    url("../27.jpg") center/cover no-repeat;
   border-radius: 15px;
   transition: transform 0.3s ease-in-out;
 }
@@ -309,7 +309,7 @@ img {
   right: 0;
   bottom: 0;
   left: 0;
-  background-image: url("../src/assets/background-form.jpg");
+  background-image: url("../background-form.jpg");
   background-size: cover;
   background-position: center;
   filter: blur(3px);
