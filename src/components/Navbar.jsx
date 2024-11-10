@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import LightModeIcon from "@mui/icons-material/LightMode";
+import collapsedLightLogo from "../assets/sd2-white.png";
+import collapsedDarkLogo from "../assets/sd2.png";
 import { createContext } from "react";
 
 export const DarkModeContext = createContext();
@@ -39,9 +41,7 @@ function Navbar({ darkMode, toggleDarkMode }) {
           >
             {isNavCollapsed ? (
               <img
-                src={
-                  darkMode ? "/src/assets/sd2-white.png" : "/src/assets/sd2.png"
-                }
+                src={darkMode ? collapsedLightLogo : collapsedDarkLogo}
                 alt="Logo"
                 className="navbar-brand img-fluid"
                 style={{
