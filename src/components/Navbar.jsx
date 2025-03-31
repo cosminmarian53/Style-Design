@@ -9,7 +9,7 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import collapsedLightLogo from "../assets/sd2-white.png";
 import collapsedDarkLogo from "../assets/sd2.png";
 import { createContext } from "react";
-
+import icon from "../assets/icon.png";
 export const DarkModeContext = createContext();
 // Navbar Component
 function Navbar({ darkMode, toggleDarkMode }) {
@@ -41,17 +41,27 @@ function Navbar({ darkMode, toggleDarkMode }) {
           >
             {isNavCollapsed ? (
               <img
-                src={darkMode ? collapsedLightLogo : collapsedDarkLogo}
+                src={icon}
                 alt="Logo"
                 className="navbar-brand img-fluid"
                 style={{
                   width: "3rem",
-                  height: "3rem",
+                  height: "4rem",
                 }}
               />
             ) : (
               <span style={{ letterSpacing: "0.2rem" }}>
-                <b>STYLE</b> Design
+                <b
+                  style={{
+                    background: darkMode
+                      ? "linear-gradient(90deg, #FFD700, #FFA500, #FFC107)"
+                      : "inherit",
+                    WebkitBackgroundClip: darkMode ? "text" : "unset",
+                    WebkitTextFillColor: darkMode ? "transparent" : "inherit",
+                  }}
+                >
+                  AZTEK
+                </b>
               </span>
             )}
           </a>
@@ -73,6 +83,13 @@ function Navbar({ darkMode, toggleDarkMode }) {
                 className={`nav-item nav-btn ${
                   darkMode ? "dark-mode-underline" : ""
                 }`}
+                style={{
+                  background: darkMode
+                    ? "linear-gradient(90deg, #FFD700, #FFA500, #FFC107)"
+                    : "inherit",
+                  WebkitBackgroundClip: darkMode ? "text" : "unset",
+                  WebkitTextFillColor: darkMode ? "transparent" : "inherit",
+                }}
               >
                 <Link
                   className={`nav-link mx-2 active ${
@@ -80,13 +97,20 @@ function Navbar({ darkMode, toggleDarkMode }) {
                   }`}
                   to="/" // Replace "/home" with the actual route to the Home component
                 >
-                  ACASĂ
+                  HOME
                 </Link>
               </li>
               <li
                 className={`nav-item nav-btn ${
                   darkMode ? "dark-mode-underline" : ""
                 }`}
+                style={{
+                  background: darkMode
+                    ? "linear-gradient(90deg, #FFD700, #FFA500, #FFC107)"
+                    : "inherit",
+                  WebkitBackgroundClip: darkMode ? "text" : "unset",
+                  WebkitTextFillColor: darkMode ? "transparent" : "inherit",
+                }}
               >
                 <Link
                   className={`nav-link mx-2 ${
@@ -94,7 +118,7 @@ function Navbar({ darkMode, toggleDarkMode }) {
                   }`}
                   to="/products"
                 >
-                  PRODUSE
+                  PRODUCTS
                 </Link>
               </li>
             </ul>
@@ -121,15 +145,6 @@ function Navbar({ darkMode, toggleDarkMode }) {
                       }}
                     />
                   )}
-                </a>
-              </li>
-              <li
-                className={`nav-item mx-2 ${
-                  darkMode ? "text-white" : "text-dark"
-                }`}
-              >
-                <a>
-                  <ShoppingCartOutlinedIcon fontSize="medium" />
                 </a>
               </li>
             </ul>

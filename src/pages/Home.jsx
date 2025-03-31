@@ -3,50 +3,51 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Card from "../components/Card";
 import Footer from "../components/Footer/Footer";
-import bedroom from "../assets/Produse/dormitor/Bedroom.jpg";
+import image1 from "../assets/imag1.jpg";
 function Home() {
   // Dark Mode
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
   return (
     <>
       <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-      <div className={`container-fluid fs-4 ${darkMode ? "dark-mode-bg" : ""}`}>
+      <div className={`container-fluid m-0 ${darkMode ? "dark-mode-bg" : ""}`}>
         <div className="row">
           <Card
-            imgsrc="https://www.thespruce.com/thmb/Ba5hg_Dly4IrrInQ-XdKiGVAePo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/fancy-bathroom-ideas-4325947-hero-4777bf14fe2b447b86a21e8a64194c29.jpg"
-            title="Baie"
-            slogan="Creează o Oază de Binecuvântare în Baia Ta cu Mobilierul Nostru Premium!"
-            color={"rgba(245, 155, 145, 0.6)"}
+            imgsrc={image1}
+            title="Aztek Origins"
+            slogan="Discover the ancient roots of bold flavor."
+            color={"rgba(0, 0, 0, 0.5)"}
           />
         </div>
         <div className="row">
           <Card
-            imgsrc={bedroom}
-            title="Dormitor"
-            slogan="Adormi într-un vis de lux, trezește-te în realitatea rafinamentului!"
-            color={"rgba(65, 150, 186, 0.43)"}
+            imgsrc="https://m.media-amazon.com/images/I/61pJB6W+C1L.jpg"
+            title="Roast"
+            slogan="Masterfully roasted for a taste that awakens legends."
+            color={"rgba(0, 0, 0, 0.5)"}
           />
         </div>
         <div className="row">
           <Card
-            imgsrc="https://hips.hearstapps.com/hmg-prod/images/2-1673453547.jpg?crop=0.670xw:1.00xh;0.123xw,0&resize=1200:*"
-            title="Bucătărie"
-            slogan="Inovează în bucătărie cu mobilier care să reflecte pasiunea pentru gătit!"
-            color={"rgba(65, 150, 186, 0.43)"}
+            imgsrc="https://cdn.prod.website-files.com/60414b21f1ffcdbb0d5ad688/66181abf2dbc25ec0de5b763_nathan-dumlao-gOn7dKcCWKg-unsplash.jpg"
+            title="Blend"
+            slogan="A harmonious blend of tradition and modern craft."
+            color={"rgba(0, 0, 0, 0.5)"}
           />
         </div>
         <div className="row">
           <Card
-            imgsrc="https://www.thespruce.com/thmb/c1xl6ax-LRVnZwNPZSUR09SPlhg=/3000x0/filters:no_upscale():max_bytes(150000):strip_icc()/minimalist-living-room-ideas-5213203-hero-d27f8dcfa0b84706adbbd28ea0e1b48d.jpg"
-            title="Living Room"
-            slogan="Fă fiecare moment memorabil într-un living cu design de excepție!"
-            color={"rgba(245, 155, 145, 0.6)"}
+            imgsrc="https://www.themissingbean.co.uk/cdn/shop/files/organic-coffee-beans.jpg?v=1690550801&width=3840"
+            title="Essence"
+            slogan="Capture the essence of Aztek in every cup."
+            color={"rgba(0, 0, 0, 0.5)"}
           />
         </div>
       </div>
+
       <Footer />
     </>
   );

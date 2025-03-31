@@ -4,19 +4,24 @@ import Footer from "../components/Footer/Footer";
 import Form from "../components/Form";
 import { useInView } from "react-intersection-observer";
 import { useSpring, animated } from "react-spring";
-import livingRoom from "../assets/Produse/living/33.jpg";
-import bathroomPhoto from "../assets/Produse/baie/1.jpg";
-import kitchenPhoto from "../assets/Produse/bucatarie/21.jpg";
-import headerBackground from "../assets/Produse/poze-header/2.jpg";
 import "/public/css/main.css";
+// Coffee images from provided links
+const coffee1 =
+  "https://i.pinimg.com/736x/6c/1e/35/6c1e35d59732b51edb484f5810651023.jpg";
+const coffee2 =
+  "https://i.pinimg.com/736x/2e/8d/0c/2e8d0c4137ae14bfa403157cfdd4a91f.jpg";
+const coffee3 =
+  "https://i.pinimg.com/736x/28/92/ac/2892ac7e2fc178da7232e1f695bee61d.jpg";
+
 const Products = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
+
   // Animation: fade-in-on-scroll
   const [ref, inView] = useInView({
-    triggerOnce: true, // Change this to false if you want the animation to trigger again whenever it comes in view
+    triggerOnce: true,
   });
 
   const animation = useSpring({
@@ -43,7 +48,8 @@ const Products = () => {
     transition: "opacity 1.2s ease-in-out, transform 1.2s ease-in-out",
     padding: "0",
   });
-  // Rest of the code...
+
+  // Swiper initialization for slider
   var swiper = new Swiper(".blog-slider", {
     spaceBetween: 30,
     effect: "fade",
@@ -51,86 +57,77 @@ const Products = () => {
     mousewheel: {
       invert: false,
     },
-    // autoHeight: true,
     pagination: {
       el: ".blog-slider__pagination",
       clickable: true,
     },
   });
+
   return (
     <>
       <div
-        className={`container-fluid m-0 p-0  ${darkMode ? "dark-mode-bg" : ""}`}
+        className={`container-fluid m-0 p-0 ${darkMode ? "dark-mode-bg" : ""}`}
       >
         {/* Navbar */}
         <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-        {/* Header-Section */}
+
+        {/* Header Section without background image */}
         <div className="products">
           <h1
             className="lg-title header-title"
             style={{
-              fontFamily: "Orbitron,sans-serif",
+              fontFamily: "Orbitron, sans-serif",
               letterSpacing: "0.3rem",
               fontSize: "4rem",
-              backgroundImage: "url( '${headerBackground}')",
             }}
           >
-            mobilier de înaltă calitate
+            Aztek Coffee: Authentic Aroma
           </h1>
         </div>
 
-        {/* <!---PRODUCT CATALOGUE---> */}
+        {/* Coffee Slider */}
         <div className="container-fluid">
           <div className="blog-slider">
             <div className="blog-slider__wrp swiper-wrapper">
               <div className="blog-slider__item swiper-slide">
                 <div className="blog-slider__img">
-                  <img src={kitchenPhoto} alt="kitchen" />
+                  <img src={coffee1} alt="Arabica Coffee" />
                 </div>
                 <div className="blog-slider__content">
-                  <span className="blog-slider__code">Bucătărie</span>
-                  <div className="blog-slider__title">Stil modern</div>
+                  <span className="blog-slider__code">Arabica</span>
+                  <div className="blog-slider__title">Premium Selection</div>
                   <div className="blog-slider__text">
-                    Un mobilier de bucătărie în stil modern, elegant și
-                    funcțional, cu linii curate și finisaje mate sau lucioase.
-                    Integrând tehnologie și spații inteligente de depozitare,
-                    acest mobilier aduce un aspect contemporan oricărei
-                    bucătării, oferind un echilibru perfect între estetică și
-                    utilitate.
+                    Discover the refinement of Arabica beans, harvested from the
+                    finest plantations and perfectly roasted for an unparalleled
+                    experience.
                   </div>
                 </div>
               </div>
               <div className="blog-slider__item swiper-slide">
                 <div className="blog-slider__img">
-                  <img src={bathroomPhoto} alt="bathroomPhoto" />
+                  <img src={coffee2} alt="Intense Espresso" />
                 </div>
                 <div className="blog-slider__content">
-                  <span className="blog-slider__code">Baie</span>
-                  <div className="blog-slider__title">Stil Modern</div>
+                  <span className="blog-slider__code">Espresso</span>
+                  <div className="blog-slider__title">Intense & Bold</div>
                   <div className="blog-slider__text">
-                    O mobilă de baie în stil modern îmbină designul minimalist
-                    cu funcționalitatea sporită. Folosind materiale precum
-                    sticla, metalul și lemnul în culori neutre și finisaje
-                    lucioase, creează un spațiu elegant și relaxant. Dispune de
-                    spații de depozitare inteligente și accesorii moderne,
-                    completând astfel aspectul contemporan al băii.
+                    Savor a concentrated infusion, perfectly balanced between
+                    acidity and bitterness, designed to energize you from the
+                    very first sip.
                   </div>
                 </div>
               </div>
               <div className="blog-slider__item swiper-slide">
                 <div className="blog-slider__img">
-                  <img src={livingRoom} alt="livingRoomPicture" />
+                  <img src={coffee3} alt="Blend Aztek" />
                 </div>
                 <div className="blog-slider__content">
-                  <span className="blog-slider__code">Living Room</span>
-                  <div className="blog-slider__title">Stil clasic</div>
+                  <span className="blog-slider__code">Blend Aztek</span>
+                  <div className="blog-slider__title">Unique Mix</div>
                   <div className="blog-slider__text">
-                    Un dulap clasic pentru living room, confecționat din lemn
-                    masiv și finisat cu detalii delicate. Cu linii elegante și
-                    un design atemporal, este piesa perfectă pentru a completa
-                    atmosfera caldă și primitoare a oricărui interior în stil
-                    clasic. Un element de mobilier ce adaugă rafinament și
-                    funcționalitate spațiului de relaxare.
+                    Each blend is passionately crafted, combining carefully
+                    selected beans to deliver a perfect harmony of flavors that
+                    delight your senses.
                   </div>
                 </div>
               </div>
@@ -139,45 +136,40 @@ const Products = () => {
           </div>
         </div>
 
-        {/* <!-- PRODUCT COLLECTION --> */}
+        {/* Coffee Collection */}
         <div className="product-collection">
           <div className="container-fluid">
             <div className="product-collection-wrapper">
-              {/* <!-- product col left --> */}
+              {/* Left Column */}
               <animated.div ref={ref} style={animation}>
                 <div className="product-col-left flex">
                   <div className="product-col-content">
-                    <h2 className="sm-title">Bucătărie</h2>
+                    <h2 className="sm-title">Arabica Coffee</h2>
                     <h2 className="md-title">
-                      Mobilier Functional și Estetic!
+                      Discover Refinement in Every Bean
                     </h2>
                     <p className="text-light">
-                      Descoperă colecția noastră de mobilier de bucătărie, unde
-                      eleganța se întâlnește cu funcționalitatea pentru a crea
-                      un spațiu perfect echilibrat. De la dulapuri ingenioase
-                      până la mese elegante și insule practic concepute, fiecare
-                      piesă îți va aduce confortul și rafinamentul de care ai
-                      nevoie în bucătăria ta.
+                      Choose the superior quality of Arabica coffee, masterfully
+                      roasted to highlight its natural flavors and deliver an
+                      authentic tasting experience.
                     </p>
                   </div>
                 </div>
               </animated.div>
 
-              {/* <!-- product col right --> */}
+              {/* Right Column */}
               <div className="product-col-right">
                 <animated.div ref={ref} style={animation1}>
                   <div className="product-col-r-top flex">
                     <div className="product-col-content">
-                      <h2 className="sm-title"> Baie </h2>
+                      <h2 className="sm-title">Intense Espresso</h2>
                       <h2 className="md-title">
-                        Oază de Relaxare: Îmbracă-ți Baia în Eleganță și Răsfăț!{" "}
+                        The Power of Concentrated Flavors
                       </h2>
                       <p className="text-light">
-                        Transformă-ți baia într-un sanctuar de eleganță și
-                        funcționalitate cu gama noastră de mobilier și
-                        accesorii. De la lavoare compacte la soluții de
-                        depozitare ingenioase, fiecare element este proiectat
-                        pentru a aduce un strop de lux în spațiile mici.
+                        Our espresso is a burst of taste, crafted for those who
+                        appreciate intensity and depth, providing the energy you
+                        need every day.
                       </p>
                     </div>
                   </div>
@@ -185,35 +177,29 @@ const Products = () => {
 
                 <animated.div ref={ref} style={animation2}>
                   <div className="product-col-r-bottom">
-                    {/* <!-- left --> */}
+                    {/* Bottom Left */}
                     <div className="flex">
                       <div className="product-col-content">
-                        <h2 className="sm-title">Dormitor </h2>
+                        <h2 className="sm-title">Blend Aztek</h2>
                         <h2 className="md-title">
-                          Răsfăță-ți Sufletul într-un Univers de Liniste
+                          A Unique Harmony of Flavors
                         </h2>
                         <p className="text-light">
-                          Transformă-ți dormitorul într-un sanctuar al relaxării
-                          și rafinamentului. Cu o paletă de culori calmante și
-                          mobilier confortabil, fiecare element este ales cu
-                          grijă pentru a crea un mediu perfect pentru odihnă și
-                          regenerare.
+                          An exclusive blend made from the finest beans,
+                          achieving a perfect balance between sweetness and
+                          bitterness for a refined experience.
                         </p>
                       </div>
                     </div>
-                    {/* <!-- right --> */}
+                    {/* Bottom Right */}
                     <div className="flex">
                       <div className="product-col-content">
-                        <h2 className="sm-title">Living Room </h2>
-                        <h2 className="md-title">
-                          Stilul Se Întâlnește cu Confortul{" "}
-                        </h2>
+                        <h2 className="sm-title">Cappuccino</h2>
+                        <h2 className="md-title">Creamy Delicacy & Passion</h2>
                         <p className="text-light">
-                          Livingul tău devine centrul vieții sociale și al
-                          relaxării în același timp. Cu mobilierul nostru
-                          elegant și accentele de design rafinate, creezi un
-                          spațiu invitativ și confortabil pentru întâlniri cu
-                          prietenii sau serile liniștite în familie.
+                          Enjoy the velvety texture of our Cappuccino, where
+                          fine foam seamlessly blends with the intense aroma of
+                          freshly roasted coffee.
                         </p>
                       </div>
                     </div>
@@ -223,7 +209,7 @@ const Products = () => {
             </div>
           </div>
         </div>
-        {/* <!-- FORM --> */}
+        {/* Form Section */}
         <Form />
       </div>
       {/* Footer */}

@@ -46,7 +46,14 @@ footer {
   transition: background-color 0.5s ease;
 }
 .dark-mode-underline.nav-btn::before {
-  background-color: #fff;
+  background: linear-gradient(
+    90deg,
+    #ffd700,
+    #ffd700,
+    #ffa500,
+    #ffc107,
+    #ffc107
+  );
 }
 .dark-mode-toggler .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' fill='%23fff'%3e%3cpath stroke-linecap='round' stroke='%23fff' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
@@ -59,7 +66,8 @@ footer {
   letter-spacing: 1px;
   position: relative;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("/src/assets/background-footer.jpg") no-repeat center center;
+    url("https://fruitbasket.limepack.com/blog/wp-content/uploads/2024/03/pexels-jason-toevs-2068296.jpg")
+      no-repeat center center;
   background-size: cover;
 }
 .copyright-link:hover {

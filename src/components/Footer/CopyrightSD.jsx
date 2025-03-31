@@ -7,10 +7,10 @@ function CopyrightSD() {
         style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
       >
         Copyright © {" " + year + " "}
-        <a className="text-white copyright-link" href="https://styledesign.ro/">
-          styledesign.ro
+        <a className="text-white copyright-link" href="#">
+          aztek.ro
         </a>
-        <span>.Powered by Infinite Bytes</span>
+        <span>.Powered by 💝</span>
       </div>
     </>
   );

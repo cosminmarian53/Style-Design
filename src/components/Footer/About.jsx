@@ -8,13 +8,14 @@ function About({ title, text }) {
         >
           <a href="#" className="text-white">
             <span>
-              <b>STYLE</b>
-            </span>{" "}
-            DESIGN
+              <b>AZTEK</b>
+            </span>
           </a>
         </h2>
         <hr></hr>
-        <p className="text-center">Where Quality Meets Craftsmanship</p>
+        <p className="text-center">
+          Where Coffee Awakens the Conqueror Within.
+        </p>
       </div>
     </>
   );

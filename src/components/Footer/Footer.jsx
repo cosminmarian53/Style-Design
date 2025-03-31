@@ -27,9 +27,9 @@ function Footer() {
               {/* <!-- Contact --> */}
               <Contact
                 title={"Contact"}
-                location={"Targoviste, TG 10012, RO"}
+                location={"Brasov, BV 10012, RO"}
                 email={"info@gmail.com"}
-                tel={"+40 721 796 093"}
+                tel={"+40 521 891 123"}
               />
               {/* <!-- Contact --> */}
 

@@ -1,61 +1,65 @@
 import { useInView } from "react-intersection-observer";
 import { useSpring, animated } from "react-spring";
+import backgroundImageForm from "../assets/background-products-form.jpg";
+
 const Form = () => {
   // Function to send the form data to WhatsApp
-  function sendwhatsapp() {
+  function sendwhatsapp(e) {
+    e.preventDefault();
     var phonenumber = "+4074887694554455";
 
-    var name = document.querySelector("#name").value;
-    var lastname = document.querySelector("#lastname").value;
+    var firstName = document.querySelector("#name").value;
+    var lastName = document.querySelector("#lastname").value;
     var location = document.querySelector("#location").value;
     var email = document.querySelector("#email").value;
-    var mobila = document.querySelector("#mobila").value;
-    var design = document.querySelector("#design").value;
+    var coffeeType = document.querySelector("#coffeeType").value;
+    var roast = document.querySelector("#roast").value;
     var textarea = document.querySelector("#textarea").value;
 
     if (
-      !name ||
-      !lastname ||
+      !firstName ||
+      !lastName ||
       !location ||
       !email ||
-      !mobila ||
-      !design ||
+      !coffeeType ||
+      !roast ||
       !textarea
     ) {
-      alert("Vă rugăm să completați toate câmpurile!");
-      return; // Return early from the function
+      alert("Please fill in all fields!");
+      return;
     }
 
     var url =
       "https://wa.me/" +
       phonenumber +
       "?text=" +
-      "*Nume :* " +
-      name +
+      "*First Name:* " +
+      firstName +
       "%0a" +
-      "*Prenume :* " +
-      lastname +
+      "*Last Name:* " +
+      lastName +
       "%0a" +
-      "*Județ și Localitate :* " +
+      "*Location:* " +
       location +
       "%0a" +
-      "*Email :* " +
+      "*Email:* " +
       email +
       "%0a" +
-      "*Tipul de Mobila :* " +
-      mobila +
+      "*Coffee Type:* " +
+      coffeeType +
       "%0a" +
-      "*Design :* " +
-      design +
+      "*Roast Level:* " +
+      roast +
       "%0a" +
-      "*Specificații adiționale :* " +
+      "*Additional Notes:* " +
       textarea +
       "%0a%0a";
     window.open(url, "_blank").focus();
   }
+
   // Animation: fade-in-on-scroll
   const [ref, inView] = useInView({
-    triggerOnce: true, // Change this to false if you want the animation to trigger again whenever it comes in view
+    triggerOnce: true,
   });
 
   const animation = useSpring({
@@ -66,6 +70,7 @@ const Form = () => {
     transition: "opacity 1.2s ease-in-out, transform 1.2s ease-in-out",
     padding: "0",
   });
+
   const animation1 = useSpring({
     opacity: inView ? 1 : 0,
     transform: inView ? "translateY(0)" : "translateY(55px)",
@@ -74,96 +79,105 @@ const Form = () => {
     transition: "opacity 1.2s ease-in-out, transform 1.2s ease-in-out",
     padding: "0",
   });
+
   return (
     <>
-      {" "}
       <animated.div style={animation} ref={ref}>
-        <div className="container-fluid form-products">
+        <div
+          className="container-fluid form-products"
+          style={{
+            backgroundImage: `url(${backgroundImageForm})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
           <div className="row form-wrapper">
             <div className="col-md-12 col-sm-12 form-content-wrapper">
               <animated.div style={animation1} ref={ref}>
                 <form
                   className="form-contents"
-                  style={{ fontFamily: "Orbitron,sans-serif" }}
+                  style={{ fontFamily: "Orbitron, sans-serif" }}
                 >
                   <h2
                     className="md-title text-center"
                     style={{
-                      fontFamily: "Orbitron,sans-serif",
+                      fontFamily: "Orbitron, sans-serif",
                       fontWeight: "bold",
                     }}
                   >
-                    Te-am convins?<br></br> Trimite acum comanda pentru mobila
-                    dorita!
+                    Ready for a taste of Aztek Coffee?
+                    <br />
+                    Place your order now!
                   </h2>
                   <div className="form-group pb-2">
-                    <label htmlFor="name">Nume</label>
+                    <label htmlFor="name">First Name</label>
                     <input
                       type="text"
                       className="form-control"
                       id="name"
-                      placeholder="Introduceti numele"
+                      placeholder="Enter your first name"
                     />
                   </div>
                   <div className="form-group pb-2">
-                    <label htmlFor="lastname">Prenume</label>
+                    <label htmlFor="lastname">Last Name</label>
                     <input
                       type="text"
                       className="form-control"
                       id="lastname"
-                      placeholder="Introduceti prenumele"
+                      placeholder="Enter your last name"
                     />
                   </div>
                   <div className="form-group pb-2">
-                    <label htmlFor="location">Județ și Localitate</label>
+                    <label htmlFor="location">Location</label>
                     <input
                       type="text"
                       className="form-control"
                       id="location"
-                      placeholder="Introduceti județul și localitatea din care sunteți"
+                      placeholder="Enter your location"
                     />
                   </div>
                   <div className="form-group pb-2">
-                    <label htmlFor="email">Adresa de email</label>
+                    <label htmlFor="email">Email Address</label>
                     <input
                       type="email"
                       className="form-control"
                       id="email"
-                      placeholder="Introduceti adresa de email"
+                      placeholder="Enter your email address"
                     />
                   </div>
                   <div className="form-group pb-2">
-                    <label htmlFor="mobila">Tipul de mobila dorit</label>
-                    <select className="form-control" id="mobila">
-                      <option>Bucatarie</option>
-                      <option>Baie</option>
-                      <option>Living Room</option>
-                      <option>Dormitor</option>
+                    <label htmlFor="coffeeType">Select Coffee Type</label>
+                    <select className="form-control" id="coffeeType">
+                      <option>Arabica</option>
+                      <option>Espresso</option>
+                      <option>Blend Aztek</option>
+                      <option>Cappuccino</option>
                     </select>
                   </div>
                   <div className="form-group pb-2">
-                    <label htmlFor="design">Designul</label>
-                    <select className="form-control" id="design">
-                      <option>Clasic</option>
-                      <option>Modern</option>
+                    <label htmlFor="roast">Roast Level</label>
+                    <select className="form-control" id="roast">
+                      <option>Light Roast</option>
+                      <option>Medium Roast</option>
+                      <option>Dark Roast</option>
                     </select>
                   </div>
                   <div className="form-group pb-3">
-                    <label htmlFor="textarea">Specificatii suplimentare</label>
+                    <label htmlFor="textarea">Additional Specifications</label>
                     <textarea
                       className="form-control"
                       id="textarea"
                       rows="3"
-                      placeholder="*In cazul in care sunt neclaritati legate de comanda, o sa va contactam pentru a cere eventuale detalii. Va multumim pentru intelegere! "
+                      placeholder="If you have any special requests, let us know!"
                     ></textarea>
                   </div>
                   <div className="form-group d-flex justify-content-center">
                     <button
                       type="submit"
                       onClick={sendwhatsapp}
-                      className="btn btn-danger"
+                      className="btn btn-warning"
                     >
-                      Trimite comanda
+                      Submit Order
                     </button>
                   </div>
                 </form>

@@ -62,7 +62,7 @@ img {
 /* product section */
 .products {
   padding: 3.2rem 0;
-  background-image: url("../2.jpg");
+  background-image: url("https://i.pinimg.com/736x/e0/09/08/e00908e9d7c4919287edda4d863e23b4.jpg");
   height: 80vh;
   background-size: cover;
   background-repeat: no-repeat;
@@ -170,6 +170,19 @@ img {
   letter-spacing: 3px;
   cursor: pointer;
 }
+.gold-black-text {
+  background: linear-gradient(
+    90deg,
+    #ffd700,
+    #000,
+    #ffa500,
+    #000,
+    #ffc107,
+    #000
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 /* product collection */
 .product-collection {
@@ -181,7 +194,7 @@ img {
 }
 .product-col-left {
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)),
-    url("../21.jpg") center/cover no-repeat;
+    url("https://i.pinimg.com/736x/2c/41/7f/2c417fd25c39ad1cbea7b166cf4f43b3.jpg") center/cover no-repeat;
   border-radius: 15px;
   transition: transform 0.3s ease-in-out;
 }
@@ -203,7 +216,7 @@ img {
 }
 .product-col-r-top {
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)),
-    url("../13.jpg") center/cover no-repeat;
+    url("https://i.pinimg.com/736x/f4/fd/10/f4fd104f87cc79983dee1f7d41f737ba.jpg") center/cover no-repeat;
   border-radius: 15px;
   transition: transform 0.3s ease-in-out;
 }
@@ -217,13 +230,13 @@ img {
 }
 .product-col-r-bottom > div:first-child {
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)),
-    url("../3.jpg") center/cover no-repeat;
+    url("https://i.pinimg.com/736x/3c/a6/97/3ca6978a6baa9b5e52873a80c8b41a71.jpg") center/cover no-repeat;
   border-radius: 15px;
   transition: transform 0.3s ease-in-out;
 }
 .product-col-r-bottom > div:last-child {
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)),
-    url("../27.jpg") center/cover no-repeat;
+    url("https://i.pinimg.com/736x/d5/76/62/d57662fc546d6403e572440850a2457c.jpg") center/cover no-repeat;
   border-radius: 15px;
   transition: transform 0.3s ease-in-out;
 }
@@ -309,9 +322,6 @@ img {
   right: 0;
   bottom: 0;
   left: 0;
-  background-image: url("../background-form.jpg");
-  background-size: cover;
-  background-position: center;
   filter: blur(3px);
   z-index: -1;
 }
