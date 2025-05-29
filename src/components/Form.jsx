@@ -217,9 +217,9 @@ const Form = () => {
                       required
                     >
                       <option value="Arabica">Arabica</option>
-                      <option value="Espresso">Ethiopia</option>
+                      <option value="Ethiopia">Ethiopia</option>
                       <option value="Blend Aztek">Aztek</option>
-                      <option value="Cappuccino">Brazil</option>
+                      <option value="Brazil">Brazil</option>
                     </select>
                   </div>
                   <div className="form-group pb-2">

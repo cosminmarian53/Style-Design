@@ -5,9 +5,7 @@ import { Link } from "react-router-dom";
 // Importing Icons
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import LightModeIcon from "@mui/icons-material/LightMode";
-import { createContext } from "react";
 import icon from "../assets/icon.png";
-export const DarkModeContext = createContext();
 // Navbar Component
 function Navbar({ darkMode, toggleDarkMode }) {
   // Navbar Collapse
@@ -32,9 +30,9 @@ function Navbar({ darkMode, toggleDarkMode }) {
         }`}
       >
         <div className="container-fluid">
-          <a
+          <Link
             className={`navbar-brand ${darkMode ? "text-white" : "text-dark"}`}
-            href="#"
+            to="/"
           >
             {isNavCollapsed ? (
               <img
@@ -61,7 +59,7 @@ function Navbar({ darkMode, toggleDarkMode }) {
                 </b>
               </span>
             )}
-          </a>
+          </Link>
           <button
             className={`navbar-toggler ${darkMode ? "dark-mode-toggler" : ""}`}
             type="button"
