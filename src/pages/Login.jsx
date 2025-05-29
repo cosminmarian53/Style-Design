@@ -128,7 +128,7 @@ const Login = () => {
             style={{ textAlign: "center", marginTop: "1.5rem" }}
           >
             <Link
-              to="/home"
+              to="/"
               className="btn btn-primary"
               style={{
                 backgroundColor: "#FFD700",

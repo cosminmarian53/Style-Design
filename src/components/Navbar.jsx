@@ -4,10 +4,7 @@ import { Link } from "react-router-dom";
 
 // Importing Icons
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import LightModeIcon from "@mui/icons-material/LightMode";
-import collapsedLightLogo from "../assets/sd2-white.png";
-import collapsedDarkLogo from "../assets/sd2.png";
 import { createContext } from "react";
 import icon from "../assets/icon.png";
 export const DarkModeContext = createContext();

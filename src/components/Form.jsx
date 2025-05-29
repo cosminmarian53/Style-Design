@@ -98,13 +98,7 @@ const Form = () => {
                   className="form-contents"
                   style={{ fontFamily: "Orbitron, sans-serif" }}
                 >
-                  <h2
-                    className="md-title text-center"
-                    style={{
-                      fontFamily: "Orbitron, sans-serif",
-                      fontWeight: "bold",
-                    }}
-                  >
+                  <h2 className="md-title text-center">
                     Ready for a taste of Aztek Coffee?
                     <br />
                     Place your order now!
