@@ -1,63 +1,95 @@
+import React, { useState } from 'react'; // Added React and useState
 import { useInView } from "react-intersection-observer";
 import { useSpring, animated } from "react-spring";
 import backgroundImageForm from "../assets/background-products-form.jpg";
 
 const Form = () => {
-  // Function to send the form data to WhatsApp
-  function sendwhatsapp(e) {
-    e.preventDefault();
-    var phonenumber = "+4074887694554455";
+  // --- Start of Functional Changes ---
+  const initialFormData = {
+    firstName: '',
+    lastName: '',
+    location: '',
+    email: '',
+    coffeeType: 'Arabica', // Default value to match first option
+    roast: 'Light Roast',  // Default value to match first option
+    additionalNotes: '', // Changed from 'textarea' to match backend schema
+  };
 
-    var firstName = document.querySelector("#name").value;
-    var lastName = document.querySelector("#lastname").value;
-    var location = document.querySelector("#location").value;
-    var email = document.querySelector("#email").value;
-    var coffeeType = document.querySelector("#coffeeType").value;
-    var roast = document.querySelector("#roast").value;
-    var textarea = document.querySelector("#textarea").value;
+  const [formData, setFormData] = useState(initialFormData);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ message: '', type: '' }); // type: 'success' or 'error'
 
+  const handleChange = (e) => {
+    // Use 'id' to map to state keys to keep original HTML structure as much as possible
+    // Or add 'name' attributes that match state keys. Let's add 'name' for clarity.
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent default form submission
+    setIsSubmitting(true);
+    setSubmitStatus({ message: '', type: '' });
+
+  // Validation (using formData state)
     if (
-      !firstName ||
-      !lastName ||
-      !location ||
-      !email ||
-      !coffeeType ||
-      !roast ||
-      !textarea
+      !formData.firstName ||
+      !formData.lastName ||
+      !formData.location ||
+      !formData.email ||
+      !formData.coffeeType ||
+      !formData.roast
+      // additionalNotes is optional, so not included in required check unless specified
     ) {
-      alert("Please fill in all fields!");
+      // Using alert for now to match original feedback style, can be changed
+      alert("Please fill in all required fields!");
+      // Or update submitStatus:
+      // setSubmitStatus({ message: 'Please fill in all required fields!', type: 'error' });
+      setIsSubmitting(false);
       return;
     }
 
-    var url =
-      "https://wa.me/" +
-      phonenumber +
-      "?text=" +
-      "*First Name:* " +
-      firstName +
-      "%0a" +
-      "*Last Name:* " +
-      lastName +
-      "%0a" +
-      "*Location:* " +
-      location +
-      "%0a" +
-      "*Email:* " +
-      email +
-      "%0a" +
-      "*Coffee Type:* " +
-      coffeeType +
-      "%0a" +
-      "*Roast Level:* " +
-      roast +
-      "%0a" +
-      "*Additional Notes:* " +
-      textarea +
-      "%0a%0a";
-    window.open(url, "_blank").focus();
-  }
+    try {
+      const response = await fetch('http://localhost:5001/api/orders', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        // Ensure field names here match your backend Order model
+        body: JSON.stringify({
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          location: formData.location,
+          email: formData.email,
+          coffeeType: formData.coffeeType,
+          roast: formData.roast,
+          additionalNotes: formData.additionalNotes, // Ensure backend expects 'additionalNotes'
+        }),
+      });
 
-  // Animation: fade-in-on-scroll
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus({ message: 'Order submitted successfully!', type: 'success' });
+        setFormData(initialFormData); // Reset form
+        // Optionally, alert the success message too if you prefer alerts
+        // alert('Order submitted successfully!');
+      } else {
+        setSubmitStatus({ message: result.message || 'Failed to submit order.', type: 'error' });
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus({ message: 'An error occurred. Please try again.', type: 'error' });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+  // --- End of Functional Changes ---
+
+  // Animation: fade-in-on-scroll (Original code)
   const [ref, inView] = useInView({
     triggerOnce: true,
   });
@@ -93,8 +125,27 @@ const Form = () => {
         >
           <div className="row form-wrapper">
             <div className="col-md-12 col-sm-12 form-content-wrapper">
-              <animated.div style={animation1} ref={ref}>
+              <animated.div style={animation1} ref={ref}> {/* Note: Using ref on two animated divs might be unintentional, but kept as is */}
+                {/* --- Feedback Message Display --- */}
+                {submitStatus.message && (
+                  <div
+                    style={{
+                      padding: '10px',
+                      margin: '10px auto', // Centered with some margin
+                      maxWidth: '80%', // To prevent it from being too wide
+                      borderRadius: '5px',
+                      textAlign: 'center',
+                      color: 'white', // Assuming dark background, light text for feedback
+                      backgroundColor: submitStatus.type === 'success' ? 'green' : 'red',
+                      fontFamily: '"Orbitron", sans-serif', // Match form font
+                    }}
+                  >
+                    {submitStatus.message}
+                  </div>
+                )}
+                {/* --- End Feedback Message Display --- */}
                 <form
+                  onSubmit={handleSubmit} // Changed from onClick on button to onSubmit on form
                   className="form-contents"
                   style={{ fontFamily: "Orbitron, sans-serif" }}
                 >
@@ -109,7 +160,11 @@ const Form = () => {
                       type="text"
                       className="form-control"
                       id="name"
+                      name="firstName" // Added name attribute
                       placeholder="Enter your first name"
+                      value={formData.firstName} // Controlled component
+                      onChange={handleChange}     // Controlled component
+                      required // Added for basic browser validation
                     />
                   </div>
                   <div className="form-group pb-2">
@@ -118,7 +173,11 @@ const Form = () => {
                       type="text"
                       className="form-control"
                       id="lastname"
+                      name="lastName" // Added name attribute
                       placeholder="Enter your last name"
+                      value={formData.lastName} // Controlled component
+                      onChange={handleChange}    // Controlled component
+                      required
                     />
                   </div>
                   <div className="form-group pb-2">
@@ -127,7 +186,11 @@ const Form = () => {
                       type="text"
                       className="form-control"
                       id="location"
+                      name="location" // Added name attribute
                       placeholder="Enter your location"
+                      value={formData.location} // Controlled component
+                      onChange={handleChange}     // Controlled component
+                      required
                     />
                   </div>
                   <div className="form-group pb-2">
@@ -136,42 +199,64 @@ const Form = () => {
                       type="email"
                       className="form-control"
                       id="email"
+                      name="email" // Added name attribute
                       placeholder="Enter your email address"
+                      value={formData.email} // Controlled component
+                      onChange={handleChange}  // Controlled component
+                      required
                     />
                   </div>
                   <div className="form-group pb-2">
                     <label htmlFor="coffeeType">Select Coffee Type</label>
-                    <select className="form-control" id="coffeeType">
-                      <option>Arabica</option>
-                      <option>Espresso</option>
-                      <option>Blend Aztek</option>
-                      <option>Cappuccino</option>
+                    <select
+                      className="form-control"
+                      id="coffeeType"
+                      name="coffeeType" // Added name attribute
+                      value={formData.coffeeType} // Controlled component
+                      onChange={handleChange}     // Controlled component
+                      required
+                    >
+                      <option value="Arabica">Arabica</option>
+                      <option value="Espresso">Ethiopia</option>
+                      <option value="Blend Aztek">Aztek</option>
+                      <option value="Cappuccino">Brazil</option>
                     </select>
                   </div>
                   <div className="form-group pb-2">
                     <label htmlFor="roast">Roast Level</label>
-                    <select className="form-control" id="roast">
-                      <option>Light Roast</option>
-                      <option>Medium Roast</option>
-                      <option>Dark Roast</option>
+                    <select
+                      className="form-control"
+                      id="roast"
+                      name="roast" // Added name attribute
+                      value={formData.roast} // Controlled component
+                      onChange={handleChange}  // Controlled component
+                      required
+                    >
+                      <option value="Light Roast">Light Roast</option>
+                      <option value="Medium Roast">Medium Roast</option>
+                      <option value="Dark Roast">Dark Roast</option>
                     </select>
                   </div>
                   <div className="form-group pb-3">
                     <label htmlFor="textarea">Additional Specifications</label>
                     <textarea
                       className="form-control"
-                      id="textarea"
+                      id="textarea" // Kept ID for label, but name is for state
+                      name="additionalNotes" // Changed name to match state and backend
                       rows="3"
                       placeholder="If you have any special requests, let us know!"
+                      value={formData.additionalNotes} // Controlled component
+                      onChange={handleChange}        // Controlled component
                     ></textarea>
                   </div>
                   <div className="form-group d-flex justify-content-center">
                     <button
-                      type="submit"
-                      onClick={sendwhatsapp}
+                      type="submit" // type="submit" is correct for form submission
+                      // onClick was removed as onSubmit on <form> handles it
                       className="btn btn-warning"
+                      disabled={isSubmitting} // Disable button while submitting
                     >
-                      Submit Order
+                      {isSubmitting ? 'Submitting...' : 'Submit Order'}
                     </button>
                   </div>
                 </form>
