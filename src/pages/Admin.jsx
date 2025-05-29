@@ -311,7 +311,7 @@ const Admin = () => {
     };
 
     return (
-        <div className="min-vh-100 font-monospace">
+        <div className="min-vh-100 font-monospace bg-dark">
             <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
             <div className="container py-3">
                 <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-3">
@@ -319,7 +319,7 @@ const Admin = () => {
                         <h1 className="fs-4 fw-bold text-warning mb-1">
                             AZTEK Admin Dashboard
                         </h1>
-                        <p className="small text-muted">Manage orders and view statistics</p>
+                        <p className="small text-white">Manage orders and view statistics</p>
                     </div>
                     <button
                         onClick={handleLogout}

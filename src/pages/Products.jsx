@@ -87,16 +87,16 @@ const Products = () => {
 
         {/* Coffee Slider */}
         <div className="container-fluid">
-          <div className="blog-slider">
+          <div className="blog-slider bg-dark">
             <div className="blog-slider__wrp swiper-wrapper">
               <div className="blog-slider__item swiper-slide">
                 <div className="blog-slider__img">
                   <img src={coffee1} alt="Arabica Coffee" />
                 </div>
-                <div className="blog-slider__content">
-                  <span className="blog-slider__code">Arabica</span>
-                  <div className="blog-slider__title">Premium Selection</div>
-                  <div className="blog-slider__text">
+                <div className="blog-slider__content text-white">
+                  <span className="blog-slider__code text-white">Arabica</span>
+                  <div className="blog-slider__title text-white">Premium Selection</div>
+                  <div className="blog-slider__text text-white ">
                     Discover the refinement of Arabica beans, harvested from the
                     finest plantations and perfectly roasted for an unparalleled
                     experience.
@@ -107,10 +107,10 @@ const Products = () => {
                 <div className="blog-slider__img">
                   <img src={coffee2} alt="Intense Espresso" />
                 </div>
-                <div className="blog-slider__content">
-                  <span className="blog-slider__code">Espresso</span>
-                  <div className="blog-slider__title">Intense & Bold</div>
-                  <div className="blog-slider__text">
+                <div className="blog-slider__content text-white">
+                  <span className="blog-slider__code text-white">Espresso</span>
+                  <div className="blog-slider__title text-white">Intense & Bold</div>
+                  <div className="blog-slider__text text-white">
                     Savor a concentrated infusion, perfectly balanced between
                     acidity and bitterness, designed to energize you from the
                     very first sip.
@@ -122,9 +122,9 @@ const Products = () => {
                   <img src={coffee3} alt="Blend Aztek" />
                 </div>
                 <div className="blog-slider__content">
-                  <span className="blog-slider__code">Blend Aztek</span>
-                  <div className="blog-slider__title">Unique Mix</div>
-                  <div className="blog-slider__text">
+                  <span className="blog-slider__code text-white">Blend Aztek</span>
+                  <div className="blog-slider__title text-white">Unique Mix</div>
+                  <div className="blog-slider__text text-white">
                     Each blend is passionately crafted, combining carefully
                     selected beans to deliver a perfect harmony of flavors that
                     delight your senses.

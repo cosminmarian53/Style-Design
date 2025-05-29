@@ -1,4 +1,3 @@
-
 // Icons
 const CheckCircleIcon = ({ className = "me-1" }) => (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className={className} width="14" height="14">
@@ -41,33 +40,33 @@ const OrderCard = ({ order, onToggleFulfilled, formatDate, animationDelay }) => 
                 <dl className="small mb-2">
                     <dt className="visually-hidden">Email</dt>
                     <dd className="mb-1">
-                        <span className="text-muted">Email:</span>&nbsp;
+                        <span className="text-warning">Email:</span>&nbsp;
                         <a href={`mailto:${order.email}`} className="text-decoration-none text-light">{order.email}</a>
                     </dd>
 
                     <dt className="visually-hidden">Location</dt>
                     <dd className="mb-1">
-                        <span className="text-muted">Location:</span>&nbsp;
-                        <span>{order.location}</span>
+                        <span className="text-warning">Location:</span>&nbsp;
+                        <span className="text-light">{order.location}</span>
                     </dd>
 
                     <dt className="visually-hidden">Date</dt>
                     <dd className="mb-1">
-                        <span className="text-muted">Date:</span>&nbsp;
-                        <span>{formatDate(order.orderDate)}</span>
+                        <span className="text-warning">Date:</span>&nbsp;
+                        <span className="text-light">{formatDate(order.orderDate)}</span>
                     </dd>
 
                     <dt className="visually-hidden">Coffee</dt>
                     <dd className="mb-1">
-                        <span className="text-muted">Coffee:</span>&nbsp;
-                        <span>{order.coffeeType} <span className="text-warning">({order.roast})</span></span>
+                        <span className="text-warning">Coffee:</span>&nbsp;
+                        <span className="text-light">{order.coffeeType} <span className="text-warning">({order.roast})</span></span>
                     </dd>
                 </dl>
 
                 {order.additionalNotes && (
                     <div className="small mb-3 p-2 bg-secondary bg-opacity-55 rounded">
                         <span className="fw-bold text-warning">Notes: </span>
-                        <span>{order.additionalNotes}</span>
+                        <span className="text-white">{order.additionalNotes}</span>
                     </div>
                 )}
 

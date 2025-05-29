@@ -146,15 +146,15 @@ const Form = () => {
                 {/* --- End Feedback Message Display --- */}
                 <form
                   onSubmit={handleSubmit} // Changed from onClick on button to onSubmit on form
-                  className="form-contents"
+                  className="form-contents bg-dark"
                   style={{ fontFamily: "Orbitron, sans-serif" }}
                 >
-                  <h2 className="md-title text-center">
+                  <h2 className="md-title text-center text-white pb-3">
                     Ready for a taste of Aztek Coffee?
                     <br />
                     Place your order now!
                   </h2>
-                  <div className="form-group pb-2">
+                  <div className="form-group text-white pb-2">
                     <label htmlFor="name">First Name</label>
                     <input
                       type="text"
@@ -167,7 +167,7 @@ const Form = () => {
                       required // Added for basic browser validation
                     />
                   </div>
-                  <div className="form-group pb-2">
+                  <div className="form-group text-white pb-2">
                     <label htmlFor="lastname">Last Name</label>
                     <input
                       type="text"
@@ -180,7 +180,7 @@ const Form = () => {
                       required
                     />
                   </div>
-                  <div className="form-group pb-2">
+                  <div className="form-group text-white pb-2">
                     <label htmlFor="location">Location</label>
                     <input
                       type="text"
@@ -193,7 +193,7 @@ const Form = () => {
                       required
                     />
                   </div>
-                  <div className="form-group pb-2">
+                  <div className="form-group text-white pb-2">
                     <label htmlFor="email">Email Address</label>
                     <input
                       type="email"
@@ -206,7 +206,7 @@ const Form = () => {
                       required
                     />
                   </div>
-                  <div className="form-group pb-2">
+                  <div className="form-group text-white pb-2">
                     <label htmlFor="coffeeType">Select Coffee Type</label>
                     <select
                       className="form-control"
@@ -222,7 +222,7 @@ const Form = () => {
                       <option value="Brazil">Brazil</option>
                     </select>
                   </div>
-                  <div className="form-group pb-2">
+                  <div className="form-group text-white pb-2">
                     <label htmlFor="roast">Roast Level</label>
                     <select
                       className="form-control"
@@ -237,7 +237,7 @@ const Form = () => {
                       <option value="Dark Roast">Dark Roast</option>
                     </select>
                   </div>
-                  <div className="form-group pb-3">
+                  <div className="form-group text-white pb-3">
                     <label htmlFor="textarea">Additional Specifications</label>
                     <textarea
                       className="form-control"
