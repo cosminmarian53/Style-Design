@@ -22,7 +22,7 @@ To get a local copy up and running follow these simple steps:
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/cosminmarian53/style-design.git
+   git clone https://github.com/cosminmarian53/aztek-coffee.git
 2.Install NPM packages
 npm install
 
