@@ -1,7 +1,7 @@
 # Style Design
 
 Welcome to the repository of Style Design, the premier destination for modern and stylish furniture. Our website is crafted with the latest web technologies to provide a seamless and interactive user experience.
-
+Link to the deployed website: https://style-design-uni-project.vercel.app
 ## Technologies Used
 
 - **React**: A JavaScript library for building user interfaces.
