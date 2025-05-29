@@ -1,6 +1,6 @@
-# Style Design
+# Aztek
 
-Welcome to the repository of Style Design, the premier destination for modern and stylish furniture. Our website is crafted with the latest web technologies to provide a seamless and interactive user experience.
+Welcome to the repository of Aztek.
 
 ## Technologies Used
 
