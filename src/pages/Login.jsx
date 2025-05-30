@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { useSpring, animated } from "react-spring";
@@ -39,10 +40,6 @@ const Login = ({ onLoginSuccess }) => { // Accept onLoginSuccess prop
       });
 
       const data = await response.json();
-      console.log("Username:", username); // Log the username for debugging
-      console.log("Response data:", data); // Log the response data for debugging
-      console.log("Response status:", response.status); // Log the response status for debugging
-      console.log("Password: ", password); // Log the password for debugging
       if (response.ok) {
         // Login successful
         console.log("Login successful:", data);
