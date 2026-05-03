@@ -46,6 +46,10 @@ const Admin = () => {
     const [isLoadingStats, setIsLoadingStats] = useState(false);
     const [error, setError] = useState(null);
     const [activeTab, setActiveTab] = useState('orders');
+    const [filterCoffeeType, setFilterCoffeeType] = useState('');
+    const [filterRoast, setFilterRoast] = useState('');
+    const [filterStatus, setFilterStatus] = useState('');
+    const [filterCustomer, setFilterCustomer] = useState('');
     const [darkMode, setDarkMode] = useState(true);
     const API_BASE_URL = 'http://localhost:5001/api';
 
@@ -211,19 +215,108 @@ const Admin = () => {
             </div>
         );
 
+        const filteredOrders = orders.filter(order => {
+            if (filterCoffeeType && order.coffeeType !== filterCoffeeType) return false;
+            if (filterRoast && order.roast !== filterRoast) return false;
+            if (filterStatus === 'fulfilled' && !order.isFulfilled) return false;
+            if (filterStatus === 'pending' && order.isFulfilled) return false;
+            if (filterCustomer) {
+                const q = filterCustomer.toLowerCase();
+                const name = `${order.firstName} ${order.lastName}`.toLowerCase();
+                if (!name.includes(q) && !order.email.toLowerCase().includes(q)) return false;
+            }
+            return true;
+        });
+
         return (
-            <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
-                {orders.map((order, i) => (
-                    <div className="col" key={order._id}>
-                        <OrderCard
-                            order={order}
-                            onToggleFulfilled={handleToggleFulfilled}
-                            formatDate={formatDate}
-                            animationDelay={`${i * 0.03}s`}
-                        />
+            <>
+                <div className="card bg-dark border border-secondary mb-3 animate-fade-in">
+                    <div className="card-body p-3">
+                        <div className="row g-2 align-items-end">
+                            <div className="col-12 col-sm-6 col-md-3">
+                                <label className="form-label small text-warning mb-1">Coffee Type</label>
+                                <select
+                                    className="form-select form-select-sm bg-dark text-light border-secondary"
+                                    value={filterCoffeeType}
+                                    onChange={e => setFilterCoffeeType(e.target.value)}
+                                >
+                                    <option value="">All Types</option>
+                                    <option value="Arabica">Arabica</option>
+                                    <option value="Espresso">Espresso</option>
+                                    <option value="Blend Aztek">Blend Aztek</option>
+                                    <option value="Cappuccino">Cappuccino</option>
+                                </select>
+                            </div>
+                            <div className="col-12 col-sm-6 col-md-3">
+                                <label className="form-label small text-warning mb-1">Roast</label>
+                                <select
+                                    className="form-select form-select-sm bg-dark text-light border-secondary"
+                                    value={filterRoast}
+                                    onChange={e => setFilterRoast(e.target.value)}
+                                >
+                                    <option value="">All Roasts</option>
+                                    <option value="Light Roast">Light Roast</option>
+                                    <option value="Medium Roast">Medium Roast</option>
+                                    <option value="Dark Roast">Dark Roast</option>
+                                </select>
+                            </div>
+                            <div className="col-12 col-sm-6 col-md-3">
+                                <label className="form-label small text-warning mb-1">Status</label>
+                                <select
+                                    className="form-select form-select-sm bg-dark text-light border-secondary"
+                                    value={filterStatus}
+                                    onChange={e => setFilterStatus(e.target.value)}
+                                >
+                                    <option value="">All Statuses</option>
+                                    <option value="fulfilled">Fulfilled</option>
+                                    <option value="pending">Pending</option>
+                                </select>
+                            </div>
+                            <div className="col-12 col-sm-6 col-md-3">
+                                <label className="form-label small text-warning mb-1">Customer / Email</label>
+                                <input
+                                    type="text"
+                                    className="form-select form-select-sm bg-dark text-light border-secondary"
+                                    placeholder="Search name or email…"
+                                    value={filterCustomer}
+                                    onChange={e => setFilterCustomer(e.target.value)}
+                                />
+                            </div>
+                        </div>
+                        {(filterCoffeeType || filterRoast || filterStatus || filterCustomer) && (
+                            <div className="d-flex justify-content-between align-items-center mt-2">
+                                <p className="small text-muted mb-0">Showing {filteredOrders.length} of {orders.length} orders</p>
+                                <button
+                                    className="btn btn-outline-warning btn-sm"
+                                    onClick={() => { setFilterCoffeeType(''); setFilterRoast(''); setFilterStatus(''); setFilterCustomer(''); }}
+                                >
+                                    Clear Filters
+                                </button>
+                            </div>
+                        )}
                     </div>
-                ))}
-            </div>
+                </div>
+
+                {filteredOrders.length === 0 ? (
+                    <div className="text-center p-5 bg-dark bg-opacity-50 border border-dark rounded">
+                        <p className="fw-semibold mb-1">No orders match your filters</p>
+                        <p className="small text-muted mb-0">Try adjusting your filter criteria.</p>
+                    </div>
+                ) : (
+                    <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
+                        {filteredOrders.map((order, i) => (
+                            <div className="col" key={order._id}>
+                                <OrderCard
+                                    order={order}
+                                    onToggleFulfilled={handleToggleFulfilled}
+                                    formatDate={formatDate}
+                                    animationDelay={`${i * 0.03}s`}
+                                />
+                            </div>
+                        ))}
+                    </div>
+                )}
+            </>
         );
     };
 

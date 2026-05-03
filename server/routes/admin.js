@@ -10,15 +10,10 @@ router.post("/login", async (req, res) => {
   console.log("\n--- Admin Login Attempt ---"); // Added newline for better log separation
   try {
     const { username, password } = req.body;
-    console.log("1. Received from frontend - Username:", username);
     // IMPORTANT: Never log plain text passwords in a production environment.
-    // This is for temporary debugging of this specific issue.
-    // REMEMBER TO REMOVE THIS LOG after debugging.
-    console.log("2. Received from frontend - Password (raw):", password);
-
     if (!username || !password) {
       console.log(
-        "3. Validation failed: Username or password missing from request body."
+        "Validation failed: Username or password missing from request body."
       );
       return res
         .status(400)
@@ -26,14 +21,14 @@ router.post("/login", async (req, res) => {
     }
 
     console.log(
-      `4. Attempting to find admin with username: '${username}' in the database.`
+      `Attempting to find admin with username: '${username}' in the database.`
     );
     // Ensure the query field 'username' matches your schema definition for Admin model
     const admin = await Admin.findOne({ username: username });
 
     if (!admin) {
       console.log(
-        `5. Admin not found in database for username: '${username}'.`
+        `Admin not found in database for username: '${username}'.`
       );
       console.log("--- End of Admin Login Attempt (User Not Found) ---");
       return res.status(401).json({ message: "Invalid username or password" });
@@ -41,16 +36,14 @@ router.post("/login", async (req, res) => {
 
     // If admin is found
     console.log(
-      `5. Admin found in database - Username: ${admin.username}, ID: ${admin._id}`
+      `Admin found in database - Username: ${admin.username}, ID: ${admin._id}`
     );
-    console.log("6. Stored hashed password from DB:", admin.password); // This is crucial
 
-    console.log("7. Attempting to match provided password with stored hash...");
+    console.log("Attempting to match provided password with stored hash...");
     const isMatch = await admin.matchPassword(password); // 'password' is the plain text from req.body
-    console.log("8. Password match result (isMatch):", isMatch);
 
     if (isMatch) {
-      console.log("9. Password matched successfully!");
+      console.log("Password matched successfully!");
       const token = jwt.sign(
         { id: admin._id, username: admin.username },
         process.env.JWT_SECRET,
@@ -58,7 +51,6 @@ router.post("/login", async (req, res) => {
           expiresIn: "1h", // Token expires in 1 hour
         }
       );
-      console.log("10. JWT token generated.");
       console.log("--- End of Admin Login Attempt (Success) ---");
       return res.json({
         // Added return here
@@ -67,7 +59,7 @@ router.post("/login", async (req, res) => {
         token,
       });
     } else {
-      console.log("9. Password did NOT match the stored hash.");
+      console.log("Password did NOT match the stored hash.");
       console.log("--- End of Admin Login Attempt (Password Mismatch) ---");
       return res.status(401).json({ message: "Invalid username or password" }); // Added return
     }
